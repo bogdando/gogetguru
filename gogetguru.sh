@@ -58,10 +58,12 @@ function followURL(){ # args: URL to follow - recursively, if redirected
   local rc=1
   local res
   local loc
+  set +x
   local doc=$(curl -sLk "$1")
   local madness='.*content=".*?\n?.*?\s(?<url>https:\/\/\S+\b).*?"/ && print $+{url}'
   local goimp=$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-source\"$madness" | tail -1)
   goimp=${goimp:-$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-import\"$madness" | tail -1)}
+  set -x
   local pfl=$(echo $goimp | awk -F'https://' '{print $2}')
   [ "$goimp" -a "$pfl" ] || return 1
   local sfl="${GOPATH}/src/${pfl%.git}"
@@ -90,7 +92,7 @@ function followURL(){ # args: URL to follow - recursively, if redirected
     fi
   fi
   if [ $rc -eq 0 ]; then
-    pf="${pf:-$pfl}"; sf="${sf:-$sfl}"
+    pf="${pf:-$pfl}"; sf="${sf:-$sfl}"  # return discovered alias and path
   fi
   return $rc
 }
@@ -102,9 +104,11 @@ cloneit(){  # args: package name and ver.
   local pf
   local sf
   local sfb
+  local fl
   local rc=1
-  local bn=$(basename $1)
-  local bnl=$(echo $bn | tr '[:upper:]' '[:lower:]') 
+  local nl="$(echo $1 | tr '[:upper:]' '[:lower:]')"
+  local bn="$(basename $1)"
+  local bnl="$(basename $nl)"
   local ver=${2:-master}
   local mver
   local cver
@@ -121,21 +125,17 @@ cloneit(){  # args: package name and ver.
   for p in $levels; do
     [ $(echo $p | grep -o \/ | wc -w) -gt 0 ] || continue 
     s="$GOPATH/src/$p"
+    [ -L "$s" -a ! -d "$s/.git" ] && return 1  # a symlinked module
+    f="$p"
+    oldf="$f"
     rc=1
-    if [ -L "$s" ]; then  # found a symlink, do nothing
-      exists=0
-      f="$p"
-      return 0
-    fi 
-    if [ -d "${s}/.git" ]; then
-      f="$p"
-      if git --no-pager -C "$s" branch | grep -q "* .*$ver"; then
-        rc=0
-        echo "gogetguru: $p@$ver: is already in $s"
-      fi
-      [ $rc -eq 0 -a "$p" = "$1" ] && exists=0  # no linking required
-      [ $rc -eq 0 ] && return 0  # looks already checked out
-      break  # is not checked out yet
+    if [ -L "$s" ]; then  # a symlinked alias, continue to check out
+      rc=0
+      break
+    elif [ -d "${s}/.git" ]; then
+      [ "$p" = "$1" ] && exists=0  # no linking required
+      rc=0
+      break
     else
       [ -d "$s" ] && rm -r "$s" 2>/dev/null  # purge if only empty dir
       mkdir -p "${s%/*}" 2>/dev/null
@@ -143,28 +143,21 @@ cloneit(){  # args: package name and ver.
       rc=$?
       if [ $rc -eq 0 -a "$p" = "$1" ]; then
         exists=0  # no linking required
-        f="$p"
-      elif [ $rc -eq 0 ]; then
-        f="$p"  # linking may be required
-      else
-        followURL "https://$p"  # discover it by following go src/import meta
+      elif [ $rc -ne 0 ]; then
+        f=''
+        followURL "https://$p"
         rc=$?
-        if [ $rc -eq 0 ]; then  # an alias was discovered in pf
-          #echo "gogetguru: $p@$ver: known as $pf"  # only for debug use
-          oldf="$p"
-          p="$pf"
-          sfb=$(basename $sf)
-          f="$(echo "$s" | awk -F"$sfb" '{print $2}')"
-          f="${p}${f}"
-          s="$sf"
-          break
+        if [ $rc -eq 0 ]; then
+          f="$pf"  # the discovered alias from URL
+          s="$sf"  # the discovered local path
         fi
       fi
     fi
     [ $rc -eq 0 ] && break
   done
-
-  # try check out what was found or clonned
+  [ $rc -eq 0 ] || return 1
+  
+  # try to check out what we have here
   git -C "$s" stash >/dev/null 2>&1
   git -C "$s" reset --hard HEAD >/dev/null 2>&1
   if [ "$ver" != "master" ]; then
@@ -198,7 +191,25 @@ cloneit(){  # args: package name and ver.
     rc=$?
   fi
   git -C "$s" pull --ff-only >/dev/null 2>&1
-
+  
+  # check if found a camelcase match:
+  #   ($1)googleapis/gnostic/OpenAPIv3 -> (f)googleapis/gnostic (has ./openapiv3)
+  # or found an alias on other paths/repos:
+  #   ($1)Masterminds/semver/v3 -> (f)Masterminds/semver (has no ./v3 dir)
+  if [ ! -d "$GOPATH/src/$1" -a "$f" ]; then
+    fl="$(echo $f | tr '[:upper:]' '[:lower:]')"
+    if echo $nl | grep -q "$fl"; then  # is a subpath of $1.lower (googleapis/gnostic)
+      sfb="$(echo "$nl" | awk -F"$fl" '{print $2}')" # rightmost part (openapiv3(/...))
+      fl="${f}${sfb}"
+      if [ -d "$GOPATH/src/$fl" ]; then
+        f="$fl"; oldf="$1"; exists=1  # signal to the caller that f->oldf has to be symlinked
+      fi
+    fi
+    if [ "$f" != "$1" ]; then
+      oldf="$1"; exists=1  # signal to the caller that f->oldf has to be symlinked 
+    fi
+  fi
+  [ $rc -eq 0 -a "$f" -a "$oldf" -a "$oldf" = "$f" ] && exists=0
   return $rc
 }
 
@@ -218,6 +229,7 @@ done
 # works with a single entry path yet
 GOP=${GOPATH:-$HOME/go}
 GOPATH=$(echo $GOP | awk -F':' '{print $1}')
+[ -L "$GOPATH" ] && GOPATH=$(readlink -f "$GOPATH")
 
 if [ $clean -eq 0 ]; then
   echo "gogetguru: cleaning off previously symlinked pkg/mods"
@@ -236,7 +248,7 @@ if [ $info -eq 0 ]; then
   echo "gogetguru: global info on symlinks (relative to $GOPATH/src):"
   for l in $(find "$GOPATH/src" -type l); do
     src="$(echo $l | perl -pe 's,[^\s]\S+/src/,,g')"
-    dst="$(readlink -f $l | perl -pe 's,[^\s]\S+/src/,,g')"
+    dst="$(readlink -f "$l" | perl -pe 's,[^\s]\S+/src/,,g')"
     printf "%-55s%4s%s\n" $src '-> ' $dst
   done
   exit 0
@@ -263,10 +275,10 @@ while read -r m; do
   dname="$(dirname ${GOPATH}/pkg/mod/${name})"
   cloneit "$name" "$ver"  # sets exists, f and oldf, if f is a discovered alias
   rc=$?
-  if [ "$f" -a "$oldf" -a "$oldf" != "$f" ]; then  # discovered alias should be symlinked
+  if [ $rc -eq 0 -a "$f" -a "$oldf" -a "$oldf" != "$f" ]; then  # discovered alias should be symlinked
     found="$oldf@$ver $found"
-    [ -d "$GOPATH/src/$oldf" ] && rm -r "$GOPATH/src/$oldf" 2>/dev/null
-    if [ ! -d "$GOPATH/src/$oldf" -o -L "$GOPATH/src/$oldf" ]; then
+    if [ ! -d "$GOPATH/src/$oldf/.git" -o -L "$GOPATH/src/$oldf" ]; then
+      rm -r "$GOPATH/src/$oldf" 2>/dev/null
       mkdir -p "$GOPATH/src/${oldf%/*}" 2>/dev/null
       ln -sf "$GOPATH/src/$f" "$GOPATH/src/$oldf"
       echo "gogetguru: $name@$ver: linked alias $f as $GOPATH/src/$oldf"
@@ -275,11 +287,14 @@ while read -r m; do
       echo "gogetguru: $name@$ver: alias $f will not be linked: non empty $GOPATH/src/$oldf"
       continue  # touch nothing
     fi
-  elif [ "$f" ]; then
+  elif [ $rc -eq 0 -a "$f" ]; then
     found="$name@$ver $found"
-    [ "$f" != "$name" ] && found="$f@$ver $found"  # discovered in upper layers
-    readlink -f "$f" | grep -q "${ver}" && continue  # existing symlink matches
-    [ ! -L "$GOPATH/src/$f" -a -d "$GOPATH/src/$f" -o $exists -eq 0 ] && continue
+    [ "$f" != "$name" ] && found="$f@$ver $found"
+  elif [ "$f" ]; then
+    # when no sources clonned, check if symlink exists and already matches
+    readlink -f "$GOPATH/src/$f" | grep -q "${ver}" && continue
+    # don't touch existing repos
+    [ ! -L "$GOPATH/src/$f" -a -d "$GOPATH/src/$f/.git" ] && continue
   fi
   [ $exists -eq 0 -a $rc -eq 0 ] && continue  # all's set and linked/checked out in src
   
@@ -306,8 +321,8 @@ while read -r m; do
   
   # create a symlink of a module into expected src path
   f=${f:-$name}
-  [ -d "$GOPATH/src/$f" ] && rm -r "$GOPATH/src/$f" 2>/dev/null
-  if [ ! -d "$GOPATH/src/$f" -o -L "$GOPATH/src/$f" ]; then
+  if [ ! -d "$GOPATH/src/$f/.git" -o -L "$GOPATH/src/$f" ]; then
+    rm -r "$GOPATH/src/$f" 2>/dev/null  # purge dir if empty
     mkdir -p "$GOPATH/src/${f%/*}" 2>/dev/null
     ln -sf "$fm" "$GOPATH/src/$f"
     echo "gogetguru: $name@$ver: linked module as $GOPATH/src/$f"
