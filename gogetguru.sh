@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 #
 # Linking cloned sources or extracted modules under GOPATH for Go Guru
 # to work with go modules AUTOMAGICALLY:
@@ -73,15 +73,17 @@ function followURL(){ # args: URL to follow - recursively, if redirected
   local loc
   set +x
   local doc=$(curl -sLk "$1")
-  local madness='.*content=".*?\n?.*?\s(?<url>https:\/\/\S+\b).*?"/ && print $+{url}'
+  local madness='.*content=".*?\n?.*?\s(?<url>https:\/\/\S+\b)({.*)?"/ && print $+{url}'
   local goimp=$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-source\"$madness" | tail -1)
   goimp=${goimp:-$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-import\"$madness" | tail -1)}
+  set -x
   local pfl=$(echo $goimp | awk -F'https://' '{print $2}')
   [ "$goimp" -a "$pfl" ] || return 1
   local sfl="${GOPATH}/src/${pfl%.git}"
   pfl="${pfl%.git}"
   if [ -d "$(readlink -f $sfl)/.git" ]; then
     sfl=$(readlink -f "$sfl")
+    pfl=$(echo $pfl | awk -F"$GOPATH/src/" '{print $2}')
     rc=0
   else
     res=$(curl -sIk $goimp)
@@ -140,6 +142,7 @@ cloneit(){  # args: package name and ver.
     rc=1
     if [ -d "$(readlink -f $s)/.git" ]; then  # continue to check out
       s=$(readlink -f "$s")
+      f=$(echo $s | awk -F"$GOPATH/src/" '{print $2}')
       rc=0
       break
     else
