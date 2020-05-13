@@ -188,7 +188,8 @@ cloneit(){  # args: package name and ver.
     git -C "$s" checkout "$bn/$mver"  -b "$bn/$mver"  >/dev/null 2>&1 ||\
     git -C "$s" checkout "$bn/$mver"                  >/dev/null 2>&1 ||\
     git -C "$s" checkout "$mver"      -b "$mver"      >/dev/null 2>&1 ||\
-    git -C "$s" checkout "$mver"                      >/dev/null 2>&1
+    git -C "$s" checkout "$mver"                      >/dev/null 2>&1 ||\
+    git -C "$s" checkout master                       >/dev/null 2>&1 # a poor man's match
     rc=$?
   else
     git -C "$s" checkout master >/dev/null 2>&1
