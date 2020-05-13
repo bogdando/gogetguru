@@ -81,7 +81,8 @@ function followURL(){ # args: URL to follow - recursively, if redirected
   [ "$goimp" -a "$pfl" ] || return 1
   local sfl="${GOPATH}/src/${pfl%.git}"
   pfl="${pfl%.git}"
-  if [ -d "${sfl}/.git" ]; then
+  if [ -d "$(readlink -f $sfl)/.git" ]; then
+    sfl=$(readlink -f "$sfl")
     rc=0
   else
     res=$(curl -sIk $goimp)
@@ -134,11 +135,12 @@ cloneit(){  # args: package name and ver.
   for p in $levels; do
     [ $(echo $p | grep -o \/ | wc -w) -gt 0 ] || continue 
     s="$GOPATH/src/$p"
-    [ -L "$s" -a ! -d "$s/.git" ] && return 1  # a symlinked module
+    #[ -L "$s" -a ! -d "$(readlink -f $s)/.git" ] && return 1  # a symlinked module
     f="$p"
     oldf="$f"
     rc=1
-    if [  -d "${s}/.git" -o -L "$s" ]; then  # continue to check out
+    if [ -d "$(readlink -f $s)/.git" ]; then  # continue to check out
+      s=$(readlink -f "$s")
       rc=0
       break
     else
@@ -305,7 +307,7 @@ while read -r m; do
   fi
  
   # create a symlink of a module into expected src path
-  if [ "$fm" ] && [ ! -d "$GOPATH/src/$name/.git" -o -L "$GOPATH/src/$name" -o $overwrite -eq 0 ]; then
+  if [ "$fm" ] && [ ! -d "$(readlink -f $GOPATH/src/$name)/.git" -o -L "$GOPATH/src/$name" -o $overwrite -eq 0 ]; then
     rm -r "$GOPATH/src/$name" 2>/dev/null  # purge dir if empty
     [ $overwrite -eq 0 ] && rm -rf "$GOPATH/src/$name"
     mkdir -p "$GOPATH/src/${f%/*}" 2>/dev/null
@@ -316,13 +318,15 @@ while read -r m; do
     echo "gogetguru: $name@$ver: module will not be linked: non empty $GOPATH/src/$name"
   fi
 
-  [ -L "$GOPATH/src/$name" -a ! -d "$GOPATH/src/$name/.git" ] && continue
+  # was it already/before symlinked from a module?
+  [ "$fm" ] && continue
+  #[ -L "$GOPATH/src/$name" -a ! -d "$(readlink -f $GOPATH/src/$name)/.git" ] && continue
 
   cloneit "$name" "$ver"  # sets f and oldf != f, if f is a discovered alias
   rc=$?
   if [ $rc -eq 0 -a "$f" -a "$oldf" -a "$oldf" != "$f" ]; then  # discovered alias should be symlinked
     found="$oldf@$ver $found"
-    if [ ! -d "$GOPATH/src/$oldf/.git" -o -L "$GOPATH/src/$oldf" -o $overwrite -eq 0 ]; then
+    if [ ! -d "$(readlink $GOPATH/src/$oldf)/.git" -o -L "$GOPATH/src/$oldf" -o $overwrite -eq 0 ]; then
       rm -r "$GOPATH/src/$oldf" 2>/dev/null  # purge dir if empty
       [ $overwrite -eq 0 ] && rm -rf "$GOPATH/src/$oldf"
       mkdir -p "$GOPATH/src/${oldf%/*}" 2>/dev/null
