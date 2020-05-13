@@ -91,17 +91,14 @@ function followURL(){ # args: URL to follow - recursively, if redirected
       if [ "${loc%.git*}" != "${1%.git*}" ]; then
         followURL "${loc}"
         rc=$?
-      else
-        res=$(echo $res | grep -i '200 ok')
-        if [ "$res" -o "$loc" ]; then
-          [ -d "$sfl" ] && rm -r "$sfl" 2>/dev/null  # purge if only empty dir
-          mkdir -p "${sfl%/*}" 2>/dev/null
-          git clone "${loc:-$goimp}" "${sfl}" >/dev/null 2>&1
-          rc=$?
-        else
-          rc=1  # failed parsing HTTP response
-        fi
       fi
+    elif echo $res | grep -i '200 ok'; then
+      [ -d "$sfl" ] && rm -r "$sfl" 2>/dev/null  # purge if only empty dir
+      mkdir -p "${sfl%/*}" 2>/dev/null
+      git clone "${loc:-$goimp}" "${sfl}" >/dev/null 2>&1
+      rc=$?
+    else
+      rc=1  # failed parsing HTTP response
     fi
   fi
   if [ $rc -eq 0 ]; then
