@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 #
 # Linking cloned sources or extracted modules under GOPATH for Go Guru
 # to work with go modules AUTOMAGICALLY:
@@ -76,7 +76,6 @@ function followURL(){ # args: URL to follow - recursively, if redirected
   local madness='.*content=".*?\n?.*?\s(?<url>https:\/\/\S+\b).*?"/ && print $+{url}'
   local goimp=$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-source\"$madness" | tail -1)
   goimp=${goimp:-$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-import\"$madness" | tail -1)}
-  set -x
   local pfl=$(echo $goimp | awk -F'https://' '{print $2}')
   [ "$goimp" -a "$pfl" ] || return 1
   local sfl="${GOPATH}/src/${pfl%.git}"
@@ -296,13 +295,11 @@ while read -r m; do
   if [ "$fm" ]; then
     fm=$(echo $fm | awk -F'.tmp|+incompatible' '{print $1}')
     ver=$(echo $fm | awk -F'@' '{print $2}' | awk -F'/' '{print $1}')
-    #echo "gogetguru: $name@$ver: picked from modules in $fm"
   else
     fm=$(find ${dname}@* -type d -name "${sname}" 2>/dev/null | grep -m1 "$ver")
     fm=$(echo $fm | awk -F'.tmp|+incompatible' '{print $1}')
     if [ "$fm" ]; then
       ver=$(echo $fm | awk -F'@' '{print $2}' | awk -F'/' '{print $1}')
-      #echo "gogetguru: $name@$ver: picked from modules in $fm"
     fi
   fi
  
@@ -314,8 +311,6 @@ while read -r m; do
     ln -sf "$fm" "$GOPATH/src/$name"
     echo "gogetguru: $name@$ver: linked module as $GOPATH/src/$name"
     found="$name@$ver $found"
-  elif [ "$fm" ]; then
-    echo "gogetguru: $name@$ver: module will not be linked: non empty $GOPATH/src/$name"
   fi
 
   # was it already/before symlinked from a module?
@@ -332,8 +327,6 @@ while read -r m; do
       mkdir -p "$GOPATH/src/${oldf%/*}" 2>/dev/null
       ln -sf "$GOPATH/src/$f" "$GOPATH/src/$oldf"
       echo "gogetguru: $name@$ver: linked alias $f as $GOPATH/src/$oldf"
-    else
-      echo "gogetguru: $name@$ver: alias $f will not be linked: non empty $GOPATH/src/$oldf"
     fi
   elif [ $rc -eq 0 -a "$f" ]; then
     found="$name@$ver $found"
