@@ -2,13 +2,23 @@
 #
 # Linking cloned sources or extracted modules under GOPATH for Go Guru
 # to work with go modules AUTOMAGICALLY:
-# - For each extracted pkg module by go tools, symlinks it from
-#   modules into GOPATH, or tries to clone it from discovered repo URL.
-#   If the package local repo path differs, also creates a simlink for it.
-# - If a package is already in sources, stashes cnahges, resets HEAD, then checks
+# - For each extracted pkg module by go tools, symlinks it from modules (or
+#   clones it from the discovered repo URL) into GOPATH. Use '-o' to
+#   allow symlinking modules over GOPATH contents (is destructive for repos!)
+# - If the package is aliased to another repo, also creates a simlink for it:
+#   cloud.google.com/go -> github.com/googleapis/google-cloud-go
+# - If a package is already in GOPATH, stashes cnahges, resets HEAD, then checks
 #   it out by the wanted version and tries to git pull, if in a branch.
-#   For multi-packages in a single repo, the last processed package "wins" and
-#   the repo stays checked out for its only version.
+# - For multi-packages in a single repo, the last processed package "wins" and
+#   the repo stays checked out for its only version. F.e. cloud.google.com/go:
+#   - has cloud.google.com/go/storage and storage/v1.2.3
+#   - has cloud.google.com/go/bigquery and bigquery/v3.2.1
+#   So the bigquery's version wins, if processed after "storage". Using '-o'
+#   may improve that situation by symlinking right module versions into the repo
+# - The list of extracted packages (either passed in a file or args) is always
+#   sorted so the topmost level packages will be processed last, while the
+#   nested packages will go first. When read from stdin it's processed as it
+#   goes without changing the order of packages.
 #
 # Hacks around missing goguru modules support https://github.com/golang/go/issues/31720
 # so you can use modules with https://github.com/fatih/vim-go, hopefully.
@@ -17,11 +27,12 @@
 # $ export GOFLAGS=-mod=vendor
 # OR hacking in go.mod files, e.g.:
 # use replace github.com/foo/bar => ../bar
+# OR using gopls over go guru?..
 #
 # Example (NOTE stderr redirect is needed for pipelining go tools):
 # $ go get k8s.io/api/core/v1@latest |& gogetguru.sh
 # $ go mod tidy 2>&1 | tee /tmp/gogetmodules
-# $ gogetguru.sh -f /tmp/gogetmodules  # postprocess it
+# $ gogetguru.sh -o -f /tmp/gogetmodules  # postprocess it in overwrite mode
 #
 # Or (this also attempts to follow redirected URLs):
 # $ gogetguru.sh k8s.io/weird.module/v1 github.com/something/odd/v3
@@ -45,6 +56,8 @@ usage(){
     -c - cleanup symlinks of GOPATH[0]/pkg modules into sources
     -f - a file from which to read the info about packages
          extracted by misc go tools
+    -o - overwrite mode that perfers linking modules over repos
+         It only post-processes packages from -f <file> or args
     <arg1 ... argN> - a list of packages to process directly
     NOTE: when used in a pipe, it reads info about extracted
           packages from stdin and processes it on fly
@@ -116,7 +129,6 @@ cloneit(){  # args: package name and ver.
   
   f=''
   oldf=''
-  exists=1
   for p in "$1" "${1%/*/*/*}" "${1%/*}" "${1%/*/*}" "${1%/*/*/*/*}"; do  # also search a 4 levels up
     [ $(echo $p | grep -o \/ | wc -w) -gt 0 ] || continue
     echo $levels | grep -q "$p " && continue
@@ -129,11 +141,7 @@ cloneit(){  # args: package name and ver.
     f="$p"
     oldf="$f"
     rc=1
-    if [ -L "$s" ]; then  # a symlinked alias, continue to check out
-      rc=0
-      break
-    elif [ -d "${s}/.git" ]; then
-      [ "$p" = "$1" ] && exists=0  # no linking required
+    if [  -d "${s}/.git" -o -L "$s" ]; then  # continue to check out
       rc=0
       break
     else
@@ -141,9 +149,7 @@ cloneit(){  # args: package name and ver.
       mkdir -p "${s%/*}" 2>/dev/null
       git clone "https://$p" "${s}" >/dev/null 2>&1
       rc=$?
-      if [ $rc -eq 0 -a "$p" = "$1" ]; then
-        exists=0  # no linking required
-      elif [ $rc -ne 0 ]; then
+      if [ $rc -ne 0 ]; then
         f=''
         followURL "https://$p"
         rc=$?
@@ -160,6 +166,7 @@ cloneit(){  # args: package name and ver.
   # try to check out what we have here
   git -C "$s" stash >/dev/null 2>&1
   git -C "$s" reset --hard HEAD >/dev/null 2>&1
+  git -C "$s" clean -fd >/dev/null 2>&1
   if [ "$ver" != "master" ]; then
     # ascend versions up or try by commit sha until found something appropriate...
     mver=$(git --no-pager -C "$s" branch -r 2>/dev/null | grep -o "${ver%.*}.*" | uniq)
@@ -202,29 +209,33 @@ cloneit(){  # args: package name and ver.
       sfb="$(echo "$nl" | awk -F"$fl" '{print $2}')" # rightmost part (openapiv3(/...))
       fl="${f}${sfb}"
       if [ -d "$GOPATH/src/$fl" ]; then
-        f="$fl"; oldf="$1"; exists=1  # signal to the caller that f->oldf has to be symlinked
+        f="$fl"; oldf="$1"; # signal to the caller that f->oldf has to be symlinked
       fi
     fi
     if [ "$f" != "$1" ]; then
-      oldf="$1"; exists=1  # signal to the caller that f->oldf has to be symlinked 
+      oldf="$1" # signal to the caller that f->oldf has to be symlinked 
     fi
   fi
-  [ $rc -eq 0 -a "$f" -a "$oldf" -a "$oldf" = "$f" ] && exists=0
   return $rc
 }
 
-clean=1; info=1; file=''
+clean=1; info=1; overwrite=1; file='';args=''
 while (( $# )); do
   case "$1" in
     '-h') usage >&2; exit 0 ;;
     '-c') clean=0;;
     '-i') info=0;;
     '-f') shift; file=${1:--};;
+    '-o') overwrite=0;;
     *) [[ $1 =~ ^- ]] || args="${1},$args";;
   esac
   shift
 done
 [ -z "$args" ] && file=${file:--}  # read from stdin, if no file name given
+if [ "$file" = '-' -o -z "$file" ] && [ $overwrite -eq 0 -a -z "$args" ]; then
+  echo 'gogetguru: -o (overwrite mode) requires <args> or -f <file>. Ignoring it!'
+  overwrite=1
+fi
 
 # works with a single entry path yet
 GOP=${GOPATH:-$HOME/go}
@@ -263,6 +274,8 @@ if [ "$args" ]; then
   done
   file="$modfile"
 fi
+sort "$file" -o "$modfile"
+file="$modfile"
 
 found=''
 while read -r m; do
@@ -273,31 +286,10 @@ while read -r m; do
   echo "$found" | grep -q "$name@$ver" && continue  # found on the src paths
   sname="$(basename ${name})"
   dname="$(dirname ${GOPATH}/pkg/mod/${name})"
-  cloneit "$name" "$ver"  # sets exists, f and oldf, if f is a discovered alias
-  rc=$?
-  if [ $rc -eq 0 -a "$f" -a "$oldf" -a "$oldf" != "$f" ]; then  # discovered alias should be symlinked
-    found="$oldf@$ver $found"
-    if [ ! -d "$GOPATH/src/$oldf/.git" -o -L "$GOPATH/src/$oldf" ]; then
-      rm -r "$GOPATH/src/$oldf" 2>/dev/null
-      mkdir -p "$GOPATH/src/${oldf%/*}" 2>/dev/null
-      ln -sf "$GOPATH/src/$f" "$GOPATH/src/$oldf"
-      echo "gogetguru: $name@$ver: linked alias $f as $GOPATH/src/$oldf"
-      continue
-    else
-      echo "gogetguru: $name@$ver: alias $f will not be linked: non empty $GOPATH/src/$oldf"
-      continue  # touch nothing
-    fi
-  elif [ $rc -eq 0 -a "$f" ]; then
-    found="$name@$ver $found"
-    [ "$f" != "$name" ] && found="$f@$ver $found"
-  elif [ "$f" ]; then
-    # when no sources clonned, check if symlink exists and already matches
-    readlink -f "$GOPATH/src/$f" | grep -q "${ver}" && continue
-    # don't touch existing repos
-    [ ! -L "$GOPATH/src/$f" -a -d "$GOPATH/src/$f/.git" ] && continue
-  fi
-  [ $exists -eq 0 -a $rc -eq 0 ] && continue  # all's set and linked/checked out in src
-  
+
+  # check if symlink exists and already matches
+  readlink -f "$GOPATH/src/$name" | grep -q "${ver}" && continue
+
   # check if it already exists in modules (pick it only if version matched)
   fm=''
   fm=$(find ${dname} -name "${sname}@*" 2>/dev/null | grep -m1 "$ver")
@@ -313,21 +305,37 @@ while read -r m; do
       #echo "gogetguru: $name@$ver: picked from modules in $fm"
     fi
   fi
-
-  if [ -z "$fm" ]; then
-    echo "gogetguru: $name@$ver: could not be located (try vendoring it?)"
-    continue
-  fi
-  
+ 
   # create a symlink of a module into expected src path
-  f=${f:-$name}
-  if [ ! -d "$GOPATH/src/$f/.git" -o -L "$GOPATH/src/$f" ]; then
-    rm -r "$GOPATH/src/$f" 2>/dev/null  # purge dir if empty
+  if [ "$fm" ] && [ ! -d "$GOPATH/src/$name/.git" -o -L "$GOPATH/src/$name" -o $overwrite -eq 0 ]; then
+    rm -r "$GOPATH/src/$name" 2>/dev/null  # purge dir if empty
+    [ $overwrite -eq 0 ] && rm -rf "$GOPATH/src/$name"
     mkdir -p "$GOPATH/src/${f%/*}" 2>/dev/null
-    ln -sf "$fm" "$GOPATH/src/$f"
-    echo "gogetguru: $name@$ver: linked module as $GOPATH/src/$f"
+    ln -sf "$fm" "$GOPATH/src/$name"
+    echo "gogetguru: $name@$ver: linked module as $GOPATH/src/$name"
     found="$name@$ver $found"
-  else
-    echo "gogetguru: $name@$ver: module will not be linked: non empty $GOPATH/src/$f"
+  elif [ "$fm" ]; then
+    echo "gogetguru: $name@$ver: module will not be linked: non empty $GOPATH/src/$name"
   fi
+
+  [ -L "$GOPATH/src/$name" -a ! -d "$GOPATH/src/$name/.git" ] && continue
+
+  cloneit "$name" "$ver"  # sets f and oldf != f, if f is a discovered alias
+  rc=$?
+  if [ $rc -eq 0 -a "$f" -a "$oldf" -a "$oldf" != "$f" ]; then  # discovered alias should be symlinked
+    found="$oldf@$ver $found"
+    if [ ! -d "$GOPATH/src/$oldf/.git" -o -L "$GOPATH/src/$oldf" -o $overwrite -eq 0 ]; then
+      rm -r "$GOPATH/src/$oldf" 2>/dev/null  # purge dir if empty
+      [ $overwrite -eq 0 ] && rm -rf "$GOPATH/src/$oldf"
+      mkdir -p "$GOPATH/src/${oldf%/*}" 2>/dev/null
+      ln -sf "$GOPATH/src/$f" "$GOPATH/src/$oldf"
+      echo "gogetguru: $name@$ver: linked alias $f as $GOPATH/src/$oldf"
+    else
+      echo "gogetguru: $name@$ver: alias $f will not be linked: non empty $GOPATH/src/$oldf"
+    fi
+  elif [ $rc -eq 0 -a "$f" ]; then
+    found="$name@$ver $found"
+    [ "$f" != "$name" ] && found="$f@$ver $found"
+  fi
+  [ -d "$GOPATH/src/$name" ] || echo "gogetguru: $name@$ver: could not be located (try vendoring it?)"
 done < <(cat -- "$file")
