@@ -19,6 +19,8 @@ to work with go modules AUTOMAGICALLY:
    sorted so the topmost level packages will be processed last, while the
    nested packages will go first. When read from stdin it's processed as it
    goes without changing the order of packages.
+ * It also tracks a history of processed URLs, like this
+   [example](./histry.example), to cache it for the one-time execution.
 
 Hacks around missing [goguru modules support](https://github.com/golang/go/issues/31720)
 so you can use modules with [vim-go](https://github.com/fatih/vim-go), hopefully.
@@ -53,13 +55,23 @@ Or example for how to not mess your go.mod and go.sum in ./ :
  $ function ggg { (cd && GO111MODULE=on $@ |& gogetguru.sh) }
  $ ggg go get -u cats.io/a.messy.module/v1@master
 ```
-Fetch the world example (process all a project's deps to put it in GOPATH):
+Fetch the world [example](./results.example) (process all a project's deps to put it in GOPATH):
 ```
  $ go list -m all | tail -n +2 | xargs -n1 -r -I{} echo go: extracting {} |& gogetguru
 ```
-Fetch only direct deps for future post-processing (-f gogetmodules):
+Fetch only direct deps for future post-processing (``-f gogetmodules``):
 ```
  $ go list -u -f \
    '{{if (not (or .Main .Indirect))}}go: extracting {{.Path}}: {{.Version}}{{end}}' \
-   -m all 2>/def/null > gogetmodules
+   -m all 2>/dev/null > gogetmodules
+ $ gogetguru -f gogetmodules 
+```
+The latter command does not touch `github.com/operator-framework/operator-sdk` repository, if
+there was a module found. If you wish to go wild and symlink it over live repo, use:
+
+```
+ $ gogetguru -o -f gogetmodules
+ ...
+ gogetguru: github.com/operator-framework/operator-sdk@v0.17.1-0.20200416203822-1087d81ff40b: linked module as /opt/go/src/github.com/operator-framework/operator-sdk
+ ...
 ```

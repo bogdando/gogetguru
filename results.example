@@ -1,0 +1,813 @@
+go: extracting bazil.org/fuse v0.0.0-20160811212531-371fbbdaa898
+gogetguru bazil.org/fuse@v0.0.0-20160811212531-371fbbdaa898: checked out * (HEAD detached at 371fbbd) in /opt/go/src/github.com/bazil/fuse
+gogetguru: bazil.org/fuse@v0.0.0-20160811212531-371fbbdaa898: linked alias github.com/bazil/fuse as /opt/go/src/bazil.org/fuse
+go: extracting bou.ke/monkey v1.0.1
+gogetguru bou.ke/monkey@v1.0.1: checked out * v1.0.1 in /opt/go/src/github.com/bouk/monkey
+gogetguru: bou.ke/monkey@v1.0.1: linked alias github.com/bouk/monkey as /opt/go/src/bou.ke/monkey
+go: extracting cloud.google.com/go/bigquery v1.3.0
+gogetguru cloud.google.com/go/bigquery@v1.3.0: checked out * bigquery/v1.3.0 in /opt/go/src/github.com/googleapis/google-cloud-go
+gogetguru: cloud.google.com/go/bigquery@v1.3.0: linked alias github.com/googleapis/google-cloud-go as /opt/go/src/cloud.google.com/go/bigquery
+go: extracting cloud.google.com/go/datastore v1.0.0
+gogetguru cloud.google.com/go/datastore@v1.0.0: checked out * datastore/v1.0.0 in /opt/go/src/github.com/googleapis/google-cloud-go
+gogetguru: cloud.google.com/go/datastore@v1.0.0: linked alias github.com/googleapis/google-cloud-go as /opt/go/src/cloud.google.com/go/datastore
+go: extracting cloud.google.com/go/pubsub v1.0.1
+gogetguru cloud.google.com/go/pubsub@v1.0.1: checked out * pubsub/v1.0.1 in /opt/go/src/github.com/googleapis/google-cloud-go
+gogetguru: cloud.google.com/go/pubsub@v1.0.1: linked alias github.com/googleapis/google-cloud-go as /opt/go/src/cloud.google.com/go/pubsub
+go: extracting cloud.google.com/go/storage v1.3.0
+gogetguru cloud.google.com/go/storage@v1.3.0: checked out * storage/v1.3.0 in /opt/go/src/github.com/googleapis/google-cloud-go
+gogetguru: cloud.google.com/go/storage@v1.3.0: linked alias github.com/googleapis/google-cloud-go as /opt/go/src/cloud.google.com/go/storage
+go: extracting cloud.google.com/go v0.49.0
+go: extracting contrib.go.opencensus.io/exporter/ocagent v0.6.0
+go: extracting dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9
+gogetguru dmitri.shuralyov.com/gpu/mtl@v0.0.0-20190408044501-666a987793e9: checked out * (HEAD detached at 666a987) in /opt/go/src/dmitri.shuralyov.com/gpu/mtl
+go: extracting github.com/agnivade/levenshtein v1.0.1
+gogetguru github.com/agnivade/levenshtein@v1.0.1: checked out * v1.0.1 in /opt/go/src/github.com/agnivade/levenshtein
+go: extracting github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
+go: extracting github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d
+gogetguru github.com/alecthomas/units@v0.0.0-20190924025748-f65c72e2690d: checked out * (HEAD detached at f65c72e) in /opt/go/src/github.com/alecthomas/units
+go: extracting github.com/aliyun/aliyun-oss-go-sdk v2.0.4+incompatible
+gogetguru github.com/aliyun/aliyun-oss-go-sdk@v2.0.4: checked out * v2.0.4 in /opt/go/src/github.com/aliyun/aliyun-oss-go-sdk
+go: extracting github.com/andreyvit/diff v0.0.0-20170406064948-c7f18ee00883
+gogetguru github.com/andreyvit/diff@v0.0.0-20170406064948-c7f18ee00883: checked out * (HEAD detached at c7f18ee) in /opt/go/src/github.com/andreyvit/diff
+go: extracting github.com/antihax/optional v0.0.0-20180407024304-ca021399b1a6
+gogetguru github.com/antihax/optional@v0.0.0-20180407024304-ca021399b1a6: checked out * (HEAD detached at ca02139) in /opt/go/src/github.com/antihax/optional
+go: extracting github.com/apache/thrift v0.12.0
+gogetguru github.com/apache/thrift@v0.12.0: checked out * v0.12.0 in /opt/go/src/github.com/apache/thrift
+go: extracting github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e
+gogetguru github.com/armon/circbuf@v0.0.0-20150827004946-bbbad097214e: checked out * (HEAD detached at bbbad09) in /opt/go/src/github.com/armon/circbuf
+go: extracting github.com/armon/consul-api v0.0.0-20180202201655-eb2c6b5be1b6
+gogetguru github.com/armon/consul-api@v0.0.0-20180202201655-eb2c6b5be1b6: checked out * (HEAD detached at eb2c6b5) in /opt/go/src/github.com/armon/consul-api
+go: extracting github.com/armon/go-metrics v0.3.0
+gogetguru github.com/armon/go-metrics@v0.3.0: checked out * v0.3.0 in /opt/go/src/github.com/armon/go-metrics
+go: extracting github.com/armon/go-radix v1.0.0
+gogetguru github.com/armon/go-radix@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/armon/go-radix
+go: extracting github.com/asaskevich/govalidator v0.0.0-20200108200545-475eaeb16496
+go: extracting github.com/aws/aws-sdk-go v1.25.48
+gogetguru github.com/aws/aws-sdk-go@v1.25.48: checked out * v1.25.48 in /opt/go/src/github.com/aws/aws-sdk-go
+go: extracting github.com/Azure/azure-pipeline-go v0.2.2
+gogetguru github.com/Azure/azure-pipeline-go@v0.2.2: checked out * v0.2.2 in /opt/go/src/github.com/Azure/azure-pipeline-go
+go: extracting github.com/Azure/azure-sdk-for-go v36.1.0+incompatible
+gogetguru github.com/Azure/azure-sdk-for-go@v36.1.0: checked out * v36.1.0 in /opt/go/src/github.com/Azure/azure-sdk-for-go
+go: extracting github.com/Azure/azure-storage-blob-go v0.8.0
+gogetguru github.com/Azure/azure-storage-blob-go@v0.8.0: checked out * v0.8.0 in /opt/go/src/github.com/Azure/azure-storage-blob-go
+go: extracting github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78
+gogetguru github.com/Azure/go-ansiterm@v0.0.0-20170929234023-d6e3b3328b78: checked out * (HEAD detached at d6e3b33) in /opt/go/src/github.com/Azure/go-ansiterm
+go: extracting github.com/Azure/go-autorest/autorest/adal v0.8.1-0.20191028180845-3492b2aff503
+gogetguru github.com/Azure/go-autorest/autorest/adal@v0.8.1-0.20191028180845-3492b2aff503: checked out * (HEAD detached at 3492b2a) in /opt/go/src/github.com/Azure/go-autorest
+go: extracting github.com/Azure/go-autorest/autorest/date v0.2.0
+gogetguru github.com/Azure/go-autorest/autorest/date@v0.2.0: checked out * master in /opt/go/src/github.com/Azure/go-autorest
+go: extracting github.com/Azure/go-autorest/autorest/mocks v0.3.0
+gogetguru github.com/Azure/go-autorest/autorest/mocks@v0.3.0: checked out * master in /opt/go/src/github.com/Azure/go-autorest
+go: extracting github.com/Azure/go-autorest/autorest/to v0.3.1-0.20191028180845-3492b2aff503
+gogetguru github.com/Azure/go-autorest/autorest/to@v0.3.1-0.20191028180845-3492b2aff503: checked out * (HEAD detached at 3492b2a) in /opt/go/src/github.com/Azure/go-autorest
+go: extracting github.com/Azure/go-autorest/autorest v0.9.3-0.20191028180845-3492b2aff503
+gogetguru github.com/Azure/go-autorest/autorest@v0.9.3-0.20191028180845-3492b2aff503: checked out * (HEAD detached at 3492b2a) in /opt/go/src/github.com/Azure/go-autorest
+go: extracting github.com/Azure/go-autorest/autorest/validation v0.2.1-0.20191028180845-3492b2aff503
+gogetguru github.com/Azure/go-autorest/autorest/validation@v0.2.1-0.20191028180845-3492b2aff503: checked out * (HEAD detached at 3492b2a) in /opt/go/src/github.com/Azure/go-autorest
+go: extracting github.com/Azure/go-autorest/logger v0.1.0
+gogetguru github.com/Azure/go-autorest/logger@v0.1.0: checked out * logger/v0.1.0 in /opt/go/src/github.com/Azure/go-autorest
+go: extracting github.com/Azure/go-autorest/tracing v0.5.0
+gogetguru github.com/Azure/go-autorest/tracing@v0.5.0: checked out * tracing/v0.5.0 in /opt/go/src/github.com/Azure/go-autorest
+go: extracting github.com/Azure/go-autorest v11.2.8+incompatible => github.com/Azure/go-autorest v13.3.2+incompatible
+gogetguru github.com/Azure/go-autorest@v11.2.8: checked out * v11.2.8 in /opt/go/src/github.com/Azure/go-autorest
+go: extracting github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f
+gogetguru github.com/baiyubin/aliyun-sts-go-sdk@v0.0.0-20180326062324-cfa1a18b161f: checked out * (HEAD detached at cfa1a18) in /opt/go/src/github.com/baiyubin/aliyun-sts-go-sdk
+go: extracting github.com/beorn7/perks v1.0.1
+go: extracting github.com/bgentry/speakeasy v0.1.0
+gogetguru github.com/bgentry/speakeasy@v0.1.0: checked out * v0.1.0 in /opt/go/src/github.com/bgentry/speakeasy
+go: extracting github.com/bitly/go-hostpool v0.0.0-20171023180738-a3a6125de932
+gogetguru github.com/bitly/go-hostpool@v0.0.0-20171023180738-a3a6125de932: checked out * (HEAD detached at a3a6125) in /opt/go/src/github.com/bitly/go-hostpool
+go: extracting github.com/bitly/go-simplejson v0.5.0
+go: extracting github.com/blang/semver v3.5.1+incompatible
+go: extracting github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869
+go: extracting github.com/bradfitz/gomemcache v0.0.0-20190913173617-a41fca850d0b
+gogetguru github.com/bradfitz/gomemcache@v0.0.0-20190913173617-a41fca850d0b: checked out * (HEAD detached at a41fca8) in /opt/go/src/github.com/bradfitz/gomemcache
+go: extracting github.com/brancz/gojsontoyaml v0.0.0-20190425155809-e8bd32d46b3d
+gogetguru github.com/brancz/gojsontoyaml@v0.0.0-20190425155809-e8bd32d46b3d: checked out * (HEAD detached at e8bd32d) in /opt/go/src/github.com/brancz/gojsontoyaml
+go: extracting github.com/bshuster-repo/logrus-logstash-hook v0.4.1
+go: extracting github.com/bugsnag/bugsnag-go v0.0.0-20141110184014-b1d153021fcd
+go: extracting github.com/bugsnag/osext v0.0.0-20130617224835-0dd3f918b21b
+go: extracting github.com/bugsnag/panicwrap v0.0.0-20151223152923-e2c28503fcd0
+go: extracting github.com/BurntSushi/toml v0.3.1
+gogetguru github.com/BurntSushi/toml@v0.3.1: checked out * v0.3.1 in /opt/go/src/github.com/BurntSushi/toml
+go: extracting github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802
+gogetguru github.com/BurntSushi/xgb@v0.0.0-20160522181843-27f122750802: checked out * (HEAD detached at 27f1227) in /opt/go/src/github.com/BurntSushi/xgb
+go: extracting github.com/campoy/embedmd v1.0.0
+gogetguru github.com/campoy/embedmd@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/campoy/embedmd
+go: extracting github.com/cenkalti/backoff v0.0.0-20181003080854-62661b46c409
+gogetguru github.com/cenkalti/backoff@v0.0.0-20181003080854-62661b46c409: checked out * (HEAD detached at 62661b4) in /opt/go/src/github.com/cenkalti/backoff
+go: extracting github.com/census-instrumentation/opencensus-proto v0.2.1
+go: extracting github.com/cespare/xxhash v1.1.0
+go: extracting github.com/cespare/xxhash/v2 v2.1.1
+go: extracting github.com/chai2010/gettext-go v0.0.0-20160711120539-c6fed771bfd5
+go: extracting github.com/circonus-labs/circonus-gometrics v2.3.1+incompatible
+gogetguru github.com/circonus-labs/circonus-gometrics@v2.3.1: checked out * v2.3.1 in /opt/go/src/github.com/circonus-labs/circonus-gometrics
+go: extracting github.com/circonus-labs/circonusllhist v0.1.3
+gogetguru github.com/circonus-labs/circonusllhist@v0.1.3: checked out * v0.1.3 in /opt/go/src/github.com/circonus-labs/circonusllhist
+go: extracting github.com/client9/misspell v0.3.4
+gogetguru github.com/client9/misspell@v0.3.4: checked out * v0.3.4 in /opt/go/src/github.com/client9/misspell
+go: extracting github.com/cockroachdb/apd v1.1.0
+gogetguru github.com/cockroachdb/apd@v1.1.0: checked out * v1.1.0 in /opt/go/src/github.com/cockroachdb/apd
+go: extracting github.com/cockroachdb/cockroach-go v0.0.0-20181001143604-e0a95dfd547c
+gogetguru github.com/cockroachdb/cockroach-go@v0.0.0-20181001143604-e0a95dfd547c: checked out * (HEAD detached at e0a95df) in /opt/go/src/github.com/cockroachdb/cockroach-go
+go: extracting github.com/cockroachdb/datadriven v0.0.0-20190809214429-80d97fb3cbaa
+gogetguru github.com/cockroachdb/datadriven@v0.0.0-20190809214429-80d97fb3cbaa: checked out * (HEAD detached at 80d97fb) in /opt/go/src/github.com/cockroachdb/datadriven
+go: extracting github.com/codahale/hdrhistogram v0.0.0-20161010025455-3a0bb77429bd
+gogetguru github.com/codahale/hdrhistogram@v0.0.0-20161010025455-3a0bb77429bd: checked out * (HEAD detached at 3a0bb77) in /opt/go/src/github.com/codahale/hdrhistogram
+go: extracting github.com/containerd/cgroups v0.0.0-20190919134610-bf292b21730f
+go: extracting github.com/containerd/console v0.0.0-20180822173158-c12b1e7919c1
+gogetguru github.com/containerd/console@v0.0.0-20180822173158-c12b1e7919c1: checked out * (HEAD detached at c12b1e7) in /opt/go/src/github.com/containerd/console
+go: extracting github.com/containerd/containerd v1.3.2
+go: extracting github.com/containerd/continuity v0.0.0-20200107194136-26c1120b8d41
+go: extracting github.com/containerd/fifo v0.0.0-20190226154929-a9fb20d87448
+gogetguru github.com/containerd/fifo@v0.0.0-20190226154929-a9fb20d87448: checked out * (HEAD detached at a9fb20d) in /opt/go/src/github.com/containerd/fifo
+go: extracting github.com/containerd/go-runc v0.0.0-20180907222934-5a6d9f37cfa3
+gogetguru github.com/containerd/go-runc@v0.0.0-20180907222934-5a6d9f37cfa3: checked out * (HEAD detached at 5a6d9f3) in /opt/go/src/github.com/containerd/go-runc
+go: extracting github.com/containerd/ttrpc v0.0.0-20190828154514-0e0f228740de
+gogetguru github.com/containerd/ttrpc@v0.0.0-20190828154514-0e0f228740de: checked out * (HEAD detached at 0e0f228) in /opt/go/src/github.com/containerd/ttrpc
+go: extracting github.com/containerd/typeurl v0.0.0-20180627222232-a93fcdb778cd
+gogetguru github.com/containerd/typeurl@v0.0.0-20180627222232-a93fcdb778cd: checked out * (HEAD detached at a93fcdb) in /opt/go/src/github.com/containerd/typeurl
+go: extracting github.com/coreos/bbolt v1.3.3
+gogetguru github.com/coreos/bbolt@v1.3.3: checked out * v1.3.3 in /opt/go/src/github.com/coreos/bbolt
+go: extracting github.com/coreos/etcd v3.3.17+incompatible
+gogetguru github.com/coreos/etcd@v3.3.17: checked out * v3.3.17 in /opt/go/src/github.com/coreos/etcd
+go: extracting github.com/coreos/go-etcd v2.0.0+incompatible
+gogetguru github.com/coreos/go-etcd@v2.0.0: checked out * v2.0.0 in /opt/go/src/github.com/coreos/go-etcd
+go: extracting github.com/coreos/go-oidc v2.1.0+incompatible
+go: extracting github.com/coreos/go-semver v0.3.0
+go: extracting github.com/coreos/go-systemd v0.0.0-20190321100706-95778dfbb74e
+go: extracting github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f
+gogetguru github.com/coreos/pkg@v0.0.0-20180928190104-399ea9e2e55f: checked out * (HEAD detached at 399ea9e) in /opt/go/src/github.com/coreos/pkg
+go: extracting github.com/coreos/prometheus-operator v0.38.0
+go: extracting github.com/cpuguy83/go-md2man v1.0.10
+go: extracting github.com/creack/pty v1.1.7
+gogetguru github.com/creack/pty@v1.1.7: checked out * v1.1.7 in /opt/go/src/github.com/creack/pty
+go: extracting github.com/cyphar/filepath-securejoin v0.2.2
+go: extracting github.com/cznic/b v0.0.0-20180115125044-35e9bbe41f07
+gogetguru github.com/cznic/b@v0.0.0-20180115125044-35e9bbe41f07: checked out * (HEAD detached at 35e9bbe) in /opt/go/src/github.com/cznic/b
+go: extracting github.com/cznic/fileutil v0.0.0-20180108211300-6a051e75936f
+gogetguru github.com/cznic/fileutil@v0.0.0-20180108211300-6a051e75936f: checked out * (HEAD detached at 6a051e7) in /opt/go/src/github.com/cznic/fileutil
+go: extracting github.com/cznic/golex v0.0.0-20170803123110-4ab7c5e190e4
+gogetguru github.com/cznic/golex@v0.0.0-20170803123110-4ab7c5e190e4: checked out * (HEAD detached at 4ab7c5e) in /opt/go/src/github.com/cznic/golex
+go: extracting github.com/cznic/internal v0.0.0-20180608152220-f44710a21d00
+gogetguru github.com/cznic/internal@v0.0.0-20180608152220-f44710a21d00: checked out * (HEAD detached at f44710a) in /opt/go/src/github.com/cznic/internal
+go: extracting github.com/cznic/lldb v1.1.0
+gogetguru github.com/cznic/lldb@v1.1.0: checked out * v1.1.0 in /opt/go/src/github.com/cznic/lldb
+go: extracting github.com/cznic/mathutil v0.0.0-20180504122225-ca4c9f2c1369
+gogetguru github.com/cznic/mathutil@v0.0.0-20180504122225-ca4c9f2c1369: checked out * (HEAD detached at ca4c9f2) in /opt/go/src/github.com/cznic/mathutil
+go: extracting github.com/cznic/ql v1.2.0
+gogetguru github.com/cznic/ql@v1.2.0: checked out * v1.2.0 in /opt/go/src/github.com/cznic/ql
+go: extracting github.com/cznic/sortutil v0.0.0-20150617083342-4c7342852e65
+gogetguru github.com/cznic/sortutil@v0.0.0-20150617083342-4c7342852e65: checked out * (HEAD detached at 4c73428) in /opt/go/src/github.com/cznic/sortutil
+go: extracting github.com/cznic/strutil v0.0.0-20171016134553-529a34b1c186
+gogetguru github.com/cznic/strutil@v0.0.0-20171016134553-529a34b1c186: checked out * (HEAD detached at 529a34b) in /opt/go/src/github.com/cznic/strutil
+go: extracting github.com/cznic/zappy v0.0.0-20160723133515-2533cb5b45cc
+gogetguru github.com/cznic/zappy@v0.0.0-20160723133515-2533cb5b45cc: checked out * (HEAD detached at 2533cb5) in /opt/go/src/github.com/cznic/zappy
+go: extracting github.com/DataDog/datadog-go v3.2.0+incompatible
+gogetguru github.com/DataDog/datadog-go@v3.2.0: checked out * v3.2.0 in /opt/go/src/github.com/DataDog/datadog-go
+go: extracting github.com/DATA-DOG/go-sqlmock v1.4.1
+gogetguru github.com/DATA-DOG/go-sqlmock@v1.4.1: checked out * v1.4.1 in /opt/go/src/github.com/DATA-DOG/go-sqlmock
+go: extracting github.com/davecgh/go-spew v1.1.1
+go: extracting github.com/daviddengcn/go-colortext v0.0.0-20160507010035-511bcaf42ccd
+gogetguru github.com/daviddengcn/go-colortext@v0.0.0-20160507010035-511bcaf42ccd: checked out * (HEAD detached at 511bcaf) in /opt/go/src/github.com/daviddengcn/go-colortext
+go: extracting github.com/deislabs/oras v0.8.1
+go: extracting github.com/denisenkom/go-mssqldb v0.0.0-20190515213511-eb9f6a1743f3
+gogetguru github.com/denisenkom/go-mssqldb@v0.0.0-20190515213511-eb9f6a1743f3: checked out * (HEAD detached at eb9f6a1) in /opt/go/src/github.com/denisenkom/go-mssqldb
+go: extracting github.com/denverdino/aliyungo v0.0.0-20190125010748-a747050bb1ba
+gogetguru github.com/denverdino/aliyungo@v0.0.0-20190125010748-a747050bb1ba: checked out * (HEAD detached at a747050) in /opt/go/src/github.com/denverdino/aliyungo
+go: extracting github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: extracting github.com/dgryski/go-sip13 v0.0.0-20190329191031-25c5027a8c7b
+gogetguru github.com/dgryski/go-sip13@v0.0.0-20190329191031-25c5027a8c7b: checked out * (HEAD detached at 25c5027) in /opt/go/src/github.com/dgryski/go-sip13
+go: extracting github.com/dhui/dktest v0.3.0
+gogetguru github.com/dhui/dktest@v0.3.0: checked out * v0.3.0 in /opt/go/src/github.com/dhui/dktest
+go: extracting github.com/dnaeon/go-vcr v1.0.1
+gogetguru github.com/dnaeon/go-vcr@v1.0.1: checked out * v1.0.1 in /opt/go/src/github.com/dnaeon/go-vcr
+go: extracting github.com/docker/cli v0.0.0-20200130152716-5d0cf8839492
+go: extracting github.com/docker/distribution v2.7.1+incompatible
+go: extracting github.com/docker/docker-credential-helpers v0.6.3
+go: extracting github.com/docker/docker v1.4.2-0.20200203170920-46ec8731fbce
+go: extracting github.com/docker/go-connections v0.4.0
+go: extracting github.com/docker/go-metrics v0.0.0-20180209012529-399ea8c73916
+go: extracting github.com/docker/go-units v0.4.0
+go: extracting github.com/docker/libtrust v0.0.0-20150114040149-fa567046d9b1
+go: extracting github.com/docker/spdystream v0.0.0-20160310174837-449fdfce4d96
+go: extracting github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815
+go: extracting github.com/dustin/go-humanize v1.0.0
+go: extracting github.com/eapache/go-resiliency v1.1.0
+gogetguru github.com/eapache/go-resiliency@v1.1.0: checked out * v1.1.0 in /opt/go/src/github.com/eapache/go-resiliency
+go: extracting github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21
+gogetguru github.com/eapache/go-xerial-snappy@v0.0.0-20180814174437-776d5712da21: checked out * (HEAD detached at 776d571) in /opt/go/src/github.com/eapache/go-xerial-snappy
+go: extracting github.com/eapache/queue v1.1.0
+gogetguru github.com/eapache/queue@v1.1.0: checked out * v1.1.0 in /opt/go/src/github.com/eapache/queue
+go: extracting github.com/edsrzf/mmap-go v1.0.0
+gogetguru github.com/edsrzf/mmap-go@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/edsrzf/mmap-go
+go: extracting github.com/elastic/go-sysinfo v1.1.1
+gogetguru github.com/elastic/go-sysinfo@v1.1.1: checked out * v1.1.1 in /opt/go/src/github.com/elastic/go-sysinfo
+go: extracting github.com/elastic/go-windows v1.0.1
+gogetguru github.com/elastic/go-windows@v1.0.1: checked out * v1.0.1 in /opt/go/src/github.com/elastic/go-windows
+go: extracting github.com/elazarl/goproxy v0.0.0-20170405201442-c4fc26588b6e
+go: extracting github.com/emicklei/go-restful v2.9.5+incompatible
+go: extracting github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473
+gogetguru github.com/envoyproxy/go-control-plane@v0.9.1-0.20191026205805-5f8ba28d4473: checked out * (HEAD detached at 5f8ba28) in /opt/go/src/github.com/envoyproxy/go-control-plane
+go: extracting github.com/envoyproxy/protoc-gen-validate v0.1.0
+gogetguru github.com/envoyproxy/protoc-gen-validate@v0.1.0: checked out * v0.1.0 in /opt/go/src/github.com/envoyproxy/protoc-gen-validate
+go: extracting github.com/evanphx/json-patch v4.5.0+incompatible
+go: extracting github.com/exponent-io/jsonpath v0.0.0-20151013193312-d6023ce2651d
+go: extracting github.com/facette/natsort v0.0.0-20181210072756-2cd4dd1e2dcb
+gogetguru github.com/facette/natsort@v0.0.0-20181210072756-2cd4dd1e2dcb: checked out * (HEAD detached at 2cd4dd1) in /opt/go/src/github.com/facette/natsort
+go: extracting github.com/fatih/camelcase v1.0.0
+gogetguru github.com/fatih/camelcase@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/fatih/camelcase
+go: extracting github.com/fatih/color v1.7.0
+go: extracting github.com/fatih/structtag v1.1.0
+go: extracting github.com/fortytw2/leaktest v1.3.0
+gogetguru github.com/fortytw2/leaktest@v1.3.0: checked out * v1.3.0 in /opt/go/src/github.com/fortytw2/leaktest
+go: extracting github.com/fsnotify/fsnotify v1.4.7
+go: extracting github.com/fsouza/fake-gcs-server v1.7.0
+gogetguru github.com/fsouza/fake-gcs-server@v1.7.0: checked out * v1.7.0 in /opt/go/src/github.com/fsouza/fake-gcs-server
+go: extracting github.com/garyburd/redigo v0.0.0-20150301180006-535138d7bcd7
+go: extracting github.com/ghodss/yaml v1.0.1-0.20190212211648-25d852aebe32
+go: extracting github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8
+gogetguru github.com/globalsign/mgo@v0.0.0-20181015135952-eeefdecb41b8: checked out * (HEAD detached at eeefdec) in /opt/go/src/github.com/globalsign/mgo
+go: extracting github.com/go-bindata/go-bindata v3.1.2+incompatible
+gogetguru github.com/go-bindata/go-bindata@v3.1.2: checked out * v3.1.2 in /opt/go/src/github.com/go-bindata/go-bindata
+go: extracting github.com/gobuffalo/envy v1.7.0
+go: extracting github.com/gobuffalo/flect v0.2.0
+go: extracting github.com/gobuffalo/logger v1.0.0
+gogetguru github.com/gobuffalo/logger@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/gobuffalo/logger
+go: extracting github.com/gobuffalo/packd v0.3.0
+go: extracting github.com/gobuffalo/packr v1.30.1
+go: extracting github.com/gobuffalo/packr/v2 v2.5.1
+gogetguru github.com/gobuffalo/packr/v2@v2.5.1: checked out * v2.5.1 in /opt/go/src/github.com/gobuffalo/packr
+go: extracting github.com/gobwas/glob v0.2.3
+go: extracting github.com/gocql/gocql v0.0.0-20190301043612-f6df8288f9b4
+gogetguru github.com/gocql/gocql@v0.0.0-20190301043612-f6df8288f9b4: checked out * (HEAD detached at f6df828) in /opt/go/src/github.com/gocql/gocql
+go: extracting github.com/godbus/dbus v0.0.0-20190422162347-ade71ed3457e
+go: extracting github.com/gofrs/flock v0.7.1
+gogetguru github.com/gofrs/flock@v0.7.1: checked out * v0.7.1 in /opt/go/src/github.com/gofrs/flock
+go: extracting github.com/go-gl/glfw v0.0.0-20190409004039-e6da0acd62b1
+gogetguru github.com/go-gl/glfw@v0.0.0-20190409004039-e6da0acd62b1: checked out * (HEAD detached at e6da0ac) in /opt/go/src/github.com/go-gl/glfw
+go: extracting github.com/gogo/protobuf v1.3.1
+go: extracting github.com/go-ini/ini v1.25.4
+gogetguru github.com/go-ini/ini@v1.25.4: checked out * v1.25.4 in /opt/go/src/github.com/go-ini/ini
+go: extracting github.com/go-kit/kit v0.9.0
+go: extracting github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
+go: extracting github.com/golang/groupcache v0.0.0-20191027212112-611e8accdfc9
+go: extracting github.com/golang-migrate/migrate/v4 v4.6.2
+go: extracting github.com/golang/mock v1.3.1
+go: extracting github.com/golangplus/bytes v0.0.0-20160111154220-45c989fe5450
+gogetguru github.com/golangplus/bytes@v0.0.0-20160111154220-45c989fe5450: checked out * (HEAD detached at 45c989f) in /opt/go/src/github.com/golangplus/bytes
+go: extracting github.com/golangplus/fmt v0.0.0-20150411045040-2a5d6d7d2995
+gogetguru github.com/golangplus/fmt@v0.0.0-20150411045040-2a5d6d7d2995: checked out * (HEAD detached at 2a5d6d7) in /opt/go/src/github.com/golangplus/fmt
+go: extracting github.com/golangplus/testing v0.0.0-20180327235837-af21d9c3145e
+gogetguru github.com/golangplus/testing@v0.0.0-20180327235837-af21d9c3145e: checked out * (HEAD detached at af21d9c) in /opt/go/src/github.com/golangplus/testing
+go: extracting github.com/golang/protobuf v1.4.0
+go: extracting github.com/golang/snappy v0.0.1
+gogetguru github.com/golang/snappy@v0.0.1: checked out * v0.0.1 in /opt/go/src/github.com/golang/snappy
+go: extracting github.com/go-logfmt/logfmt v0.4.0
+go: extracting github.com/go-logr/logr v0.1.0
+go: extracting github.com/go-logr/zapr v0.1.1
+go: extracting github.com/googleapis/gax-go v2.0.2+incompatible
+gogetguru github.com/googleapis/gax-go@v2.0.2: checked out * v2.0.2 in /opt/go/src/github.com/googleapis/gax-go
+go: extracting github.com/googleapis/gax-go/v2 v2.0.5
+gogetguru: github.com/googleapis/gax-go/v2@v2.0.5: linked module as /opt/go/src/github.com/googleapis/gax-go/v2
+go: extracting github.com/googleapis/gnostic v0.3.1
+go: extracting github.com/google/btree v1.0.0
+go: extracting github.com/google/go-cmp v0.4.0
+go: extracting github.com/google/gofuzz v1.0.0
+go: extracting github.com/google/go-github v17.0.0+incompatible
+go: extracting github.com/google/go-querystring v1.0.0
+go: extracting github.com/google/martian v2.1.0+incompatible
+go: extracting github.com/google/pprof v0.0.0-20190723021845-34ac40c74b70
+gogetguru github.com/google/pprof@v0.0.0-20190723021845-34ac40c74b70: checked out * (HEAD detached at 34ac40c) in /opt/go/src/github.com/google/pprof
+go: extracting github.com/google/renameio v0.1.0
+go: extracting github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
+go: extracting github.com/google/uuid v1.1.1
+go: extracting github.com/go-openapi/analysis v0.19.5
+go: extracting github.com/go-openapi/errors v0.19.2
+go: extracting github.com/go-openapi/jsonpointer v0.19.3
+go: extracting github.com/go-openapi/jsonreference v0.19.3
+go: extracting github.com/go-openapi/loads v0.19.4
+go: extracting github.com/go-openapi/runtime v0.19.4
+go: extracting github.com/go-openapi/spec v0.19.4
+go: extracting github.com/go-openapi/strfmt v0.19.3
+go: extracting github.com/go-openapi/swag v0.19.5
+go: extracting github.com/go-openapi/validate v0.19.5
+go: extracting github.com/gophercloud/gophercloud v0.6.0
+go: extracting github.com/gopherjs/gopherjs v0.0.0-20191106031601-ce3c9ade29de
+gogetguru github.com/gopherjs/gopherjs@v0.0.0-20191106031601-ce3c9ade29de: checked out * (HEAD detached at ce3c9ad) in /opt/go/src/github.com/gopherjs/gopherjs
+go: extracting github.com/gorilla/context v1.1.1
+gogetguru github.com/gorilla/context@v1.1.1: checked out * v1.1.1 in /opt/go/src/github.com/gorilla/context
+go: extracting github.com/gorilla/handlers v0.0.0-20150720190736-60c7bfde3e33
+go: extracting github.com/gorilla/mux v1.7.2
+go: extracting github.com/gorilla/websocket v1.4.0
+go: extracting github.com/go-sql-driver/mysql v1.4.1
+go: extracting github.com/go-stack/stack v1.8.0
+go: extracting github.com/gosuri/uitable v0.0.4
+go: extracting github.com/gregjones/httpcache v0.0.0-20180305231024-9cad4c3443a7
+go: extracting github.com/grpc-ecosystem/go-grpc-middleware v1.1.0
+gogetguru github.com/grpc-ecosystem/go-grpc-middleware@v1.1.0: checked out * v1.1.0 in /opt/go/src/github.com/grpc-ecosystem/go-grpc-middleware
+go: extracting github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
+go: extracting github.com/grpc-ecosystem/grpc-gateway v1.12.1
+gogetguru github.com/grpc-ecosystem/grpc-gateway@v1.12.1: checked out * v1.12.1 in /opt/go/src/github.com/grpc-ecosystem/grpc-gateway
+go: extracting github.com/grpc-ecosystem/grpc-health-probe v0.2.1-0.20181220223928-2bf0a5b182db
+gogetguru github.com/grpc-ecosystem/grpc-health-probe@v0.2.1-0.20181220223928-2bf0a5b182db: checked out * (HEAD detached at 2bf0a5b) in /opt/go/src/github.com/grpc-ecosystem/grpc-health-probe
+go: extracting github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed
+gogetguru github.com/hailocab/go-hostpool@v0.0.0-20160125115350-e80d13ce29ed: checked out * (HEAD detached at e80d13c) in /opt/go/src/github.com/hailocab/go-hostpool
+go: extracting github.com/hashicorp/consul/api v1.3.0
+gogetguru github.com/hashicorp/consul/api@v1.3.0: checked out * api/v1.3.0 in /opt/go/src/github.com/hashicorp/consul
+go: extracting github.com/hashicorp/consul/sdk v0.3.0
+gogetguru github.com/hashicorp/consul/sdk@v0.3.0: checked out * sdk/v0.3.0 in /opt/go/src/github.com/hashicorp/consul
+go: extracting github.com/hashicorp/errwrap v1.0.0
+gogetguru github.com/hashicorp/errwrap@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/hashicorp/errwrap
+go: extracting github.com/hashicorp/go-cleanhttp v0.5.1
+gogetguru github.com/hashicorp/go-cleanhttp@v0.5.1: checked out * v0.5.1 in /opt/go/src/github.com/hashicorp/go-cleanhttp
+go: extracting github.com/hashicorp/go-immutable-radix v1.1.0
+gogetguru github.com/hashicorp/go-immutable-radix@v1.1.0: checked out * v1.1.0 in /opt/go/src/github.com/hashicorp/go-immutable-radix
+go: extracting github.com/hashicorp/golang-lru v0.5.3
+go: extracting github.com/hashicorp/go-msgpack v0.5.5
+gogetguru github.com/hashicorp/go-msgpack@v0.5.5: checked out * v0.5.5 in /opt/go/src/github.com/hashicorp/go-msgpack
+go: extracting github.com/hashicorp/go-multierror v1.0.0
+gogetguru github.com/hashicorp/go-multierror@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/hashicorp/go-multierror
+go: extracting github.com/hashicorp/go.net v0.0.1
+gogetguru github.com/hashicorp/go.net@v0.0.1: checked out * v0.0.1 in /opt/go/src/github.com/hashicorp/go.net
+go: extracting github.com/hashicorp/go-retryablehttp v0.5.3
+gogetguru github.com/hashicorp/go-retryablehttp@v0.5.3: checked out * v0.5.3 in /opt/go/src/github.com/hashicorp/go-retryablehttp
+go: extracting github.com/hashicorp/go-rootcerts v1.0.1
+gogetguru github.com/hashicorp/go-rootcerts@v1.0.1: checked out * v1.0.1 in /opt/go/src/github.com/hashicorp/go-rootcerts
+go: extracting github.com/hashicorp/go-sockaddr v1.0.2
+gogetguru github.com/hashicorp/go-sockaddr@v1.0.2: checked out * v1.0.2 in /opt/go/src/github.com/hashicorp/go-sockaddr
+go: extracting github.com/hashicorp/go-syslog v1.0.0
+gogetguru github.com/hashicorp/go-syslog@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/hashicorp/go-syslog
+go: extracting github.com/hashicorp/go-uuid v1.0.1
+gogetguru github.com/hashicorp/go-uuid@v1.0.1: checked out * v1.0.1 in /opt/go/src/github.com/hashicorp/go-uuid
+go: extracting github.com/hashicorp/go-version v1.1.0
+gogetguru github.com/hashicorp/go-version@v1.1.0: checked out * v1.1.0 in /opt/go/src/github.com/hashicorp/go-version
+go: extracting github.com/hashicorp/hcl v1.0.0
+go: extracting github.com/hashicorp/logutils v1.0.0
+gogetguru github.com/hashicorp/logutils@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/hashicorp/logutils
+go: extracting github.com/hashicorp/mdns v1.0.0
+gogetguru github.com/hashicorp/mdns@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/hashicorp/mdns
+go: extracting github.com/hashicorp/memberlist v0.1.5
+gogetguru github.com/hashicorp/memberlist@v0.1.5: checked out * v0.1.5 in /opt/go/src/github.com/hashicorp/memberlist
+go: extracting github.com/hashicorp/serf v0.8.5
+gogetguru github.com/hashicorp/serf@v0.8.5: checked out * v0.8.5 in /opt/go/src/github.com/hashicorp/serf
+go: extracting github.com/helm/helm-2to3 v0.5.1
+go: extracting github.com/hpcloud/tail v1.0.0
+go: extracting github.com/huandu/xstrings v1.2.0
+go: extracting github.com/iancoleman/strcase v0.0.0-20190422225806-e506e3ef7365
+go: extracting github.com/imdario/mergo v0.3.7
+go: extracting github.com/inconshreveable/mousetrap v1.0.0
+go: extracting github.com/influxdata/influxdb v1.7.7
+gogetguru github.com/influxdata/influxdb@v1.7.7: checked out * v1.7.7 in /opt/go/src/github.com/influxdata/influxdb
+go: extracting github.com/jackc/fake v0.0.0-20150926172116-812a484cc733
+gogetguru github.com/jackc/fake@v0.0.0-20150926172116-812a484cc733: checked out * (HEAD detached at 812a484) in /opt/go/src/github.com/jackc/fake
+go: extracting github.com/jackc/pgx v3.2.0+incompatible
+gogetguru github.com/jackc/pgx@v3.2.0: checked out * v3.2.0 in /opt/go/src/github.com/jackc/pgx
+go: extracting github.com/jessevdk/go-flags v1.4.0
+gogetguru github.com/jessevdk/go-flags@v1.4.0: checked out * v1.4.0 in /opt/go/src/github.com/jessevdk/go-flags
+go: extracting github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: extracting github.com/jmoiron/sqlx v1.2.0
+go: extracting github.com/joefitzgerald/rainbow-reporter v0.1.0
+gogetguru github.com/joefitzgerald/rainbow-reporter@v0.1.0: checked out * v0.1.0 in /opt/go/src/github.com/joefitzgerald/rainbow-reporter
+go: extracting github.com/joeshaw/multierror v0.0.0-20140124173710-69b34d4ec901
+gogetguru github.com/joeshaw/multierror@v0.0.0-20140124173710-69b34d4ec901: checked out * (HEAD detached at 69b34d4) in /opt/go/src/github.com/joeshaw/multierror
+go: extracting github.com/joho/godotenv v1.3.0
+go: extracting github.com/jonboulle/clockwork v0.1.0
+go: extracting github.com/jpillora/backoff v1.0.0
+gogetguru github.com/jpillora/backoff@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/jpillora/backoff
+go: extracting github.com/json-iterator/go v1.1.9
+go: extracting github.com/jsonnet-bundler/jsonnet-bundler v0.2.0
+gogetguru github.com/jsonnet-bundler/jsonnet-bundler@v0.2.0: checked out * v0.2.0 in /opt/go/src/github.com/jsonnet-bundler/jsonnet-bundler
+go: extracting github.com/jstemmer/go-junit-report v0.9.1
+gogetguru github.com/jstemmer/go-junit-report@v0.9.1: checked out * v0.9.1 in /opt/go/src/github.com/jstemmer/go-junit-report
+go: extracting github.com/jtolds/gls v4.20.0+incompatible
+gogetguru github.com/jtolds/gls@v4.20.0: checked out * v4.20.0 in /opt/go/src/github.com/jtolds/gls
+go: extracting github.com/julienschmidt/httprouter v1.3.0
+gogetguru github.com/julienschmidt/httprouter@v1.3.0: checked out * v1.3.0 in /opt/go/src/github.com/julienschmidt/httprouter
+go: extracting github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
+gogetguru github.com/kardianos/osext@v0.0.0-20190222173326-2bc1f35cddc0: checked out * (HEAD detached at 2bc1f35) in /opt/go/src/github.com/kardianos/osext
+go: extracting github.com/karrick/godirwalk v1.10.12
+gogetguru github.com/karrick/godirwalk@v1.10.12: checked out * v1.10.12 in /opt/go/src/github.com/karrick/godirwalk
+go: extracting github.com/kisielk/errcheck v1.2.0
+gogetguru github.com/kisielk/errcheck@v1.2.0: checked out * v1.2.0 in /opt/go/src/github.com/kisielk/errcheck
+go: extracting github.com/kisielk/gotool v1.0.0
+go: extracting github.com/konsorten/go-windows-terminal-sequences v1.0.2
+go: extracting github.com/kr/logfmt v0.0.0-20140226030751-b84e30acd515
+gogetguru github.com/kr/logfmt@v0.0.0-20140226030751-b84e30acd515: checked out * (HEAD detached at b84e30a) in /opt/go/src/github.com/kr/logfmt
+go: extracting github.com/kr/pretty v0.1.0
+go: extracting github.com/kr/pty v1.1.5
+gogetguru github.com/kr/pty@v1.1.5: checked out * v1.1.5 in /opt/go/src/github.com/kr/pty
+go: extracting github.com/kr/text v0.1.0
+go: extracting github.com/kshvakov/clickhouse v1.3.5
+gogetguru github.com/kshvakov/clickhouse@v1.3.5: checked out * v1.3.5 in /opt/go/src/github.com/kshvakov/clickhouse
+go: extracting github.com/kylelemons/godebug v0.0.0-20170820004349-d65d576e9348
+gogetguru github.com/kylelemons/godebug@v0.0.0-20170820004349-d65d576e9348: checked out * (HEAD detached at d65d576) in /opt/go/src/github.com/kylelemons/godebug
+go: extracting github.com/leanovate/gopter v0.2.4
+gogetguru github.com/leanovate/gopter@v0.2.4: checked out * v0.2.4 in /opt/go/src/github.com/leanovate/gopter
+go: extracting github.com/lib/pq v1.0.0
+go: extracting github.com/liggitt/tabwriter v0.0.0-20181228230101-89fcab3d43de
+go: extracting github.com/lightstep/lightstep-tracer-common/golang/gogo v0.0.0-20190605223551-bc2310a04743
+gogetguru github.com/lightstep/lightstep-tracer-common/golang/gogo@v0.0.0-20190605223551-bc2310a04743: checked out * (HEAD detached at bc2310a) in /opt/go/src/github.com/lightstep/lightstep-tracer-common
+go: extracting github.com/lightstep/lightstep-tracer-go v0.18.0
+gogetguru github.com/lightstep/lightstep-tracer-go@v0.18.0: checked out * v0.18.0 in /opt/go/src/github.com/lightstep/lightstep-tracer-go
+go: extracting github.com/lithammer/dedent v1.1.0
+go: extracting github.com/lovoo/gcloud-opentracing v0.3.0
+gogetguru github.com/lovoo/gcloud-opentracing@v0.3.0: checked out * v0.3.0 in /opt/go/src/github.com/lovoo/gcloud-opentracing
+go: extracting github.com/magiconair/properties v1.8.0
+go: extracting github.com/mailru/easyjson v0.7.0
+go: extracting github.com/MakeNowJust/heredoc v0.0.0-20170808103936-bb23615498cd
+gogetguru github.com/MakeNowJust/heredoc@v0.0.0-20170808103936-bb23615498cd: checked out * (HEAD detached at bb23615) in /opt/go/src/github.com/MakeNowJust/heredoc
+go: extracting github.com/maorfr/helm-plugin-utils v0.0.0-20200216074820-36d2fcf6ae86
+gogetguru github.com/maorfr/helm-plugin-utils@v0.0.0-20200216074820-36d2fcf6ae86: checked out * (HEAD detached at 36d2fcf) in /opt/go/src/github.com/maorfr/helm-plugin-utils
+go: extracting github.com/markbates/inflect v1.0.4
+go: extracting github.com/marstr/guid v1.1.0
+gogetguru github.com/marstr/guid@v1.1.0: checked out * v1.1.0 in /opt/go/src/github.com/marstr/guid
+go: extracting github.com/martinlindhe/base36 v1.0.0
+go: extracting github.com/Masterminds/goutils v1.1.0
+gogetguru github.com/Masterminds/goutils@v1.1.0: checked out * v1.1.0 in /opt/go/src/github.com/Masterminds/goutils
+go: extracting github.com/Masterminds/semver v1.5.0
+gogetguru github.com/Masterminds/semver@v1.5.0: checked out * v1.5.0 in /opt/go/src/github.com/Masterminds/semver
+go: extracting github.com/Masterminds/semver/v3 v3.0.3
+gogetguru github.com/Masterminds/semver/v3@v3.0.3: checked out * v3.0.3 in /opt/go/src/github.com/Masterminds/semver
+gogetguru: github.com/Masterminds/semver/v3@v3.0.3: linked alias github.com/Masterminds/semver as /opt/go/src/github.com/Masterminds/semver/v3
+go: extracting github.com/Masterminds/sprig/v3 v3.0.2
+gogetguru github.com/Masterminds/sprig/v3@v3.0.2: checked out * v3.0.2 in /opt/go/src/github.com/Masterminds/sprig
+gogetguru: github.com/Masterminds/sprig/v3@v3.0.2: linked alias github.com/Masterminds/sprig as /opt/go/src/github.com/Masterminds/sprig/v3
+go: extracting github.com/Masterminds/vcs v1.13.1
+gogetguru github.com/Masterminds/vcs@v1.13.1: checked out * v1.13.1 in /opt/go/src/github.com/Masterminds/vcs
+go: extracting github.com/mattn/go-colorable v0.1.2
+go: extracting github.com/mattn/go-ieproxy v0.0.0-20191113090002-7c0f6868bffe
+gogetguru github.com/mattn/go-ieproxy@v0.0.0-20191113090002-7c0f6868bffe: checked out * (HEAD detached at 7c0f686) in /opt/go/src/github.com/mattn/go-ieproxy
+go: extracting github.com/mattn/go-isatty v0.0.12
+go: extracting github.com/mattn/go-runewidth v0.0.6
+go: extracting github.com/mattn/go-shellwords v1.0.9
+gogetguru github.com/mattn/go-shellwords@v1.0.9: checked out * v1.0.9 in /opt/go/src/github.com/mattn/go-shellwords
+go: extracting github.com/mattn/go-sqlite3 v1.10.0
+go: extracting github.com/matttproud/golang_protobuf_extensions v1.0.1
+go: extracting github.com/maxbrunsfeld/counterfeiter/v6 v6.2.2
+gogetguru github.com/maxbrunsfeld/counterfeiter/v6@v6.2.2: checked out * v6.2.2 in /opt/go/src/github.com/maxbrunsfeld/counterfeiter
+gogetguru: github.com/maxbrunsfeld/counterfeiter/v6@v6.2.2: linked alias github.com/maxbrunsfeld/counterfeiter as /opt/go/src/github.com/maxbrunsfeld/counterfeiter/v6
+go: extracting github.com/Microsoft/go-winio v0.4.15-0.20190919025122-fc70bd9a86b5
+gogetguru github.com/Microsoft/go-winio@v0.4.15-0.20190919025122-fc70bd9a86b5: checked out * (HEAD detached at fc70bd9) in /opt/go/src/github.com/Microsoft/go-winio
+go: extracting github.com/Microsoft/hcsshim v0.8.7
+gogetguru github.com/Microsoft/hcsshim@v0.8.7: checked out * v0.8.7 in /opt/go/src/github.com/Microsoft/hcsshim
+go: extracting github.com/miekg/dns v1.1.22
+gogetguru github.com/miekg/dns@v1.1.22: checked out * v1.1.22 in /opt/go/src/github.com/miekg/dns
+go: extracting github.com/mikefarah/yaml/v2 v2.4.0
+gogetguru github.com/mikefarah/yaml/v2@v2.4.0: checked out * v2.4.0 in /opt/go/src/github.com/mikefarah/yaml
+gogetguru: github.com/mikefarah/yaml/v2@v2.4.0: linked alias github.com/mikefarah/yaml as /opt/go/src/github.com/mikefarah/yaml/v2
+go: extracting github.com/mikefarah/yq/v2 v2.4.1
+gogetguru github.com/mikefarah/yq/v2@v2.4.1: checked out * v2.4.1 in /opt/go/src/github.com/mikefarah/yq
+gogetguru: github.com/mikefarah/yq/v2@v2.4.1: linked alias github.com/mikefarah/yq as /opt/go/src/github.com/mikefarah/yq/v2
+go: extracting github.com/minio/minio-go/v6 v6.0.49
+gogetguru github.com/minio/minio-go/v6@v6.0.49: checked out * v6.0.49 in /opt/go/src/github.com/minio/minio-go
+gogetguru: github.com/minio/minio-go/v6@v6.0.49: linked alias github.com/minio/minio-go as /opt/go/src/github.com/minio/minio-go/v6
+go: extracting github.com/minio/sha256-simd v0.1.1
+gogetguru github.com/minio/sha256-simd@v0.1.1: checked out * v0.1.1 in /opt/go/src/github.com/minio/sha256-simd
+go: extracting github.com/mitchellh/cli v1.0.0
+gogetguru github.com/mitchellh/cli@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/mitchellh/cli
+go: extracting github.com/mitchellh/copystructure v1.0.0
+go: extracting github.com/mitchellh/go-homedir v1.1.0
+go: extracting github.com/mitchellh/go-testing-interface v1.0.0
+gogetguru github.com/mitchellh/go-testing-interface@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/mitchellh/go-testing-interface
+go: extracting github.com/mitchellh/go-wordwrap v1.0.0
+go: extracting github.com/mitchellh/gox v0.4.0
+gogetguru github.com/mitchellh/gox@v0.4.0: checked out * v0.4.0 in /opt/go/src/github.com/mitchellh/gox
+go: extracting github.com/mitchellh/hashstructure v1.0.0
+gogetguru github.com/mitchellh/hashstructure@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/mitchellh/hashstructure
+go: extracting github.com/mitchellh/iochan v1.0.0
+gogetguru github.com/mitchellh/iochan@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/mitchellh/iochan
+go: extracting github.com/mitchellh/mapstructure v1.1.2
+go: extracting github.com/mitchellh/osext v0.0.0-20151018003038-5e2d6d41470f
+go: extracting github.com/mitchellh/reflectwalk v1.0.0
+go: extracting github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: extracting github.com/modern-go/reflect2 v1.0.1
+go: extracting github.com/morikuni/aec v1.0.0
+go: extracting github.com/mozillazg/go-cos v0.13.0
+gogetguru github.com/mozillazg/go-cos@v0.13.0: checked out * v0.13.0 in /opt/go/src/github.com/mozillazg/go-cos
+go: extracting github.com/mozillazg/go-httpheader v0.2.1
+gogetguru github.com/mozillazg/go-httpheader@v0.2.1: checked out * v0.2.1 in /opt/go/src/github.com/mozillazg/go-httpheader
+go: extracting github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822
+go: extracting github.com/mwitkow/go-conntrack v0.0.0-20190716064945-2f068394615f
+gogetguru github.com/mwitkow/go-conntrack@v0.0.0-20190716064945-2f068394615f: checked out * (HEAD detached at 2f06839) in /opt/go/src/github.com/mwitkow/go-conntrack
+go: extracting github.com/mxk/go-flowrate v0.0.0-20140419014527-cca7078d478f
+go: extracting github.com/nakagami/firebirdsql v0.0.0-20190310045651-3c02a58cfed8
+gogetguru github.com/nakagami/firebirdsql@v0.0.0-20190310045651-3c02a58cfed8: checked out * (HEAD detached at 3c02a58) in /opt/go/src/github.com/nakagami/firebirdsql
+go: extracting github.com/ncw/swift v1.0.47
+gogetguru github.com/ncw/swift@v1.0.47: checked out * v1.0.47 in /opt/go/src/github.com/ncw/swift
+go: extracting github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e
+go: extracting github.com/Nvveen/Gotty v0.0.0-20120604004816-cd527374f1e5
+gogetguru github.com/Nvveen/Gotty@v0.0.0-20120604004816-cd527374f1e5: checked out * (HEAD detached at cd52737) in /opt/go/src/github.com/Nvveen/Gotty
+go: extracting github.com/NYTimes/gziphandler v1.1.1
+gogetguru github.com/NYTimes/gziphandler@v1.1.1: checked out * v1.1.1 in /opt/go/src/github.com/NYTimes/gziphandler
+go: extracting github.com/oklog/run v1.0.0
+gogetguru github.com/oklog/run@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/oklog/run
+go: extracting github.com/oklog/ulid v1.3.1
+gogetguru github.com/oklog/ulid@v1.3.1: checked out * v1.3.1 in /opt/go/src/github.com/oklog/ulid
+go: extracting github.com/olekukonko/tablewriter v0.0.2
+gogetguru github.com/olekukonko/tablewriter@v0.0.2: checked out * v0.0.2 in /opt/go/src/github.com/olekukonko/tablewriter
+go: extracting github.com/OneOfOne/xxhash v1.2.6
+gogetguru github.com/OneOfOne/xxhash@v1.2.6: checked out * v1.2.6 in /opt/go/src/github.com/OneOfOne/xxhash
+go: extracting github.com/onsi/ginkgo v1.12.0
+go: extracting github.com/onsi/gomega v1.9.0
+go: extracting github.com/opencontainers/go-digest v1.0.0-rc1
+go: extracting github.com/opencontainers/image-spec v1.0.1
+go: extracting github.com/opencontainers/runc v0.1.1
+go: extracting github.com/opencontainers/runtime-spec v0.1.2-0.20190507144316-5b71a03e2700
+gogetguru github.com/opencontainers/runtime-spec@v0.1.2-0.20190507144316-5b71a03e2700: checked out * (HEAD detached at 5b71a03) in /opt/go/src/github.com/opencontainers/runtime-spec
+go: extracting github.com/opencontainers/runtime-tools v0.0.0-20181011054405-1d69bd0f9c39
+gogetguru github.com/opencontainers/runtime-tools@v0.0.0-20181011054405-1d69bd0f9c39: checked out * (HEAD detached at 1d69bd0) in /opt/go/src/github.com/opencontainers/runtime-tools
+go: extracting github.com/openshift/api v0.0.0-20200205133042-34f0ec8dab87
+gogetguru github.com/openshift/api@v0.0.0-20200205133042-34f0ec8dab87: checked out * (HEAD detached at 34f0ec8d) in /opt/go/src/github.com/openshift/api
+go: extracting github.com/openshift/client-go v0.0.0-20190923180330-3b6373338c9b
+gogetguru github.com/openshift/client-go@v0.0.0-20190923180330-3b6373338c9b: checked out * (HEAD detached at 3b637333) in /opt/go/src/github.com/openshift/client-go
+go: extracting github.com/openshift/origin v0.0.0-20160503220234-8f127d736703
+gogetguru github.com/openshift/origin@v0.0.0-20160503220234-8f127d736703: checked out * (HEAD detached at 8f127d7367) in /opt/go/src/github.com/openshift/origin
+go: extracting github.com/openshift/prom-label-proxy v0.1.1-0.20191016113035-b8153a7f39f1
+gogetguru github.com/openshift/prom-label-proxy@v0.1.1-0.20191016113035-b8153a7f39f1: checked out * (HEAD detached at b8153a7) in /opt/go/src/github.com/openshift/prom-label-proxy
+go: extracting github.com/opentracing/basictracer-go v1.0.0
+gogetguru github.com/opentracing/basictracer-go@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/opentracing/basictracer-go
+go: extracting github.com/opentracing-contrib/go-stdlib v0.0.0-20190519235532-cf7a6c988dc9
+gogetguru github.com/opentracing-contrib/go-stdlib@v0.0.0-20190519235532-cf7a6c988dc9: checked out * (HEAD detached at cf7a6c9) in /opt/go/src/github.com/opentracing-contrib/go-stdlib
+go: extracting github.com/opentracing/opentracing-go v1.1.0
+gogetguru github.com/opentracing/opentracing-go@v1.1.0: checked out * v1.1.0 in /opt/go/src/github.com/opentracing/opentracing-go
+go: extracting github.com/openzipkin/zipkin-go v0.1.6
+gogetguru github.com/openzipkin/zipkin-go@v0.1.6: checked out * v0.1.6 in /opt/go/src/github.com/openzipkin/zipkin-go
+go: extracting github.com/operator-framework/api v0.1.1
+go: extracting github.com/operator-framework/operator-lifecycle-manager v0.0.0-20200321030439-57b580e57e88
+go: extracting github.com/operator-framework/operator-registry v1.6.2-0.20200330184612-11867930adb5
+go: extracting github.com/operator-framework/operator-sdk v0.17.1-0.20200416203822-1087d81ff40b
+go: extracting github.com/otiai10/copy v1.0.2
+go: extracting github.com/otiai10/curr v0.0.0-20190513014714-f5a3d24e5776
+go: extracting github.com/otiai10/mint v1.3.0
+go: extracting github.com/pascaldekloe/goe v0.1.0
+gogetguru github.com/pascaldekloe/goe@v0.1.0: checked out * v0.1.0 in /opt/go/src/github.com/pascaldekloe/goe
+go: extracting github.com/pborman/uuid v1.2.0
+go: extracting github.com/pelletier/go-toml v1.2.0
+go: extracting github.com/peterbourgon/diskv v2.0.1+incompatible
+go: extracting github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2
+go: extracting github.com/pierrec/lz4 v2.0.5+incompatible
+gogetguru github.com/pierrec/lz4@v2.0.5: checked out * v2.0.5 in /opt/go/src/github.com/pierrec/lz4
+go: extracting github.com/pkg/errors v0.9.1
+go: extracting github.com/pmezard/go-difflib v1.0.0
+go: extracting github.com/posener/complete v1.1.1
+gogetguru github.com/posener/complete@v1.1.1: checked out * v1.1.1 in /opt/go/src/github.com/posener/complete
+go: extracting github.com/pquerna/cachecontrol v0.0.0-20171018203845-0dec1b30a021
+go: extracting github.com/prometheus/alertmanager v0.20.0
+gogetguru github.com/prometheus/alertmanager@v0.20.0: checked out * v0.20.0 in /opt/go/src/github.com/prometheus/alertmanager
+go: extracting github.com/prometheus/client_golang v1.5.1
+go: extracting github.com/prometheus/client_model v0.2.0
+go: extracting github.com/prometheus/common v0.9.1
+go: extracting github.com/prometheus/procfs v0.0.8
+go: extracting github.com/prometheus/prometheus v2.3.2+incompatible
+gogetguru github.com/prometheus/prometheus@v2.3.2: checked out * v2.3.2 in /opt/go/src/github.com/prometheus/prometheus
+go: extracting github.com/prometheus/tsdb v0.7.1
+gogetguru github.com/prometheus/tsdb@v0.7.1: checked out * v0.7.1 in /opt/go/src/github.com/prometheus/tsdb
+go: extracting github.com/PuerkitoBio/purell v1.1.1
+gogetguru github.com/PuerkitoBio/purell@v1.1.1: checked out * v1.1.1 in /opt/go/src/github.com/PuerkitoBio/purell
+go: extracting github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578
+gogetguru github.com/PuerkitoBio/urlesc@v0.0.0-20170810143723-de5bf2ad4578: checked out * (HEAD detached at de5bf2a) in /opt/go/src/github.com/PuerkitoBio/urlesc
+go: extracting github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a
+gogetguru github.com/rcrowley/go-metrics@v0.0.0-20181016184325-3113b8401b8a: checked out * (HEAD detached at 3113b84) in /opt/go/src/github.com/rcrowley/go-metrics
+go: extracting github.com/remyoudompheng/bigfft v0.0.0-20170806203942-52369c62f446
+gogetguru github.com/remyoudompheng/bigfft@v0.0.0-20170806203942-52369c62f446: checked out * (HEAD detached at 52369c6) in /opt/go/src/github.com/remyoudompheng/bigfft
+go: extracting github.com/robfig/cron v0.0.0-20170526150127-736158dc09e1
+gogetguru github.com/robfig/cron@v0.0.0-20170526150127-736158dc09e1: checked out * (HEAD detached at 736158d) in /opt/go/src/github.com/robfig/cron
+go: extracting github.com/rogpeppe/fastuuid v1.2.0
+gogetguru github.com/rogpeppe/fastuuid@v1.2.0: checked out * v1.2.0 in /opt/go/src/github.com/rogpeppe/fastuuid
+go: extracting github.com/rogpeppe/go-internal v1.5.0
+go: extracting github.com/rs/cors v1.6.0
+gogetguru github.com/rs/cors@v1.6.0: checked out * v1.6.0 in /opt/go/src/github.com/rs/cors
+go: extracting github.com/rubenv/sql-migrate v0.0.0-20191025130928-9355dd04f4b3
+go: extracting github.com/russross/blackfriday v1.5.2
+go: extracting github.com/ryanuber/columnize v2.1.0+incompatible
+gogetguru github.com/ryanuber/columnize@v2.1.0: checked out * v2.1.0 in /opt/go/src/github.com/ryanuber/columnize
+go: extracting github.com/samuel/go-zookeeper v0.0.0-20190923202752-2cc03de413da
+gogetguru github.com/samuel/go-zookeeper@v0.0.0-20190923202752-2cc03de413da: checked out * (HEAD detached at 2cc03de) in /opt/go/src/github.com/samuel/go-zookeeper
+go: extracting github.com/santhosh-tekuri/jsonschema v1.2.4
+gogetguru github.com/santhosh-tekuri/jsonschema@v1.2.4: checked out * v1.2.4 in /opt/go/src/github.com/santhosh-tekuri/jsonschema
+go: extracting github.com/satori/go.uuid v1.2.0
+go: extracting github.com/sclevine/spec v1.2.0
+gogetguru github.com/sclevine/spec@v1.2.0: checked out * v1.2.0 in /opt/go/src/github.com/sclevine/spec
+go: extracting github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529
+gogetguru github.com/sean-/seed@v0.0.0-20170313163322-e2103e2c3529: checked out * (HEAD detached at e2103e2) in /opt/go/src/github.com/sean-/seed
+go: extracting github.com/sergi/go-diff v1.0.0
+go: extracting github.com/Shopify/logrus-bugsnag v0.0.0-20171204204709-577dee27f20d
+gogetguru github.com/Shopify/logrus-bugsnag@v0.0.0-20171204204709-577dee27f20d: checked out * (HEAD detached at 577dee2) in /opt/go/src/github.com/Shopify/logrus-bugsnag
+go: extracting github.com/Shopify/sarama v1.19.0
+gogetguru github.com/Shopify/sarama@v1.19.0: checked out * v1.19.0 in /opt/go/src/github.com/Shopify/sarama
+go: extracting github.com/Shopify/toxiproxy v2.1.4+incompatible
+gogetguru github.com/Shopify/toxiproxy@v2.1.4: checked out * v2.1.4 in /opt/go/src/github.com/Shopify/toxiproxy
+go: extracting github.com/shopspring/decimal v0.0.0-20180709203117-cd690d0c9e24
+gogetguru github.com/shopspring/decimal@v0.0.0-20180709203117-cd690d0c9e24: checked out * (HEAD detached at cd690d0) in /opt/go/src/github.com/shopspring/decimal
+go: extracting github.com/shurcooL/httpfs v0.0.0-20190707220628-8d4bc4ba7749
+gogetguru github.com/shurcooL/httpfs@v0.0.0-20190707220628-8d4bc4ba7749: checked out * (HEAD detached at 8d4bc4b) in /opt/go/src/github.com/shurcooL/httpfs
+go: extracting github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd
+gogetguru github.com/shurcooL/vfsgen@v0.0.0-20181202132449-6a9ea43bcacd: checked out * (HEAD detached at 6a9ea43) in /opt/go/src/github.com/shurcooL/vfsgen
+go: extracting github.com/sirupsen/logrus v1.5.0
+go: extracting github.com/smartystreets/assertions v1.0.1
+gogetguru github.com/smartystreets/assertions@v1.0.1: checked out * v1.0.1 in /opt/go/src/github.com/smartystreets/assertions
+go: extracting github.com/smartystreets/goconvey v1.6.4
+gogetguru github.com/smartystreets/goconvey@v1.6.4: checked out * v1.6.4 in /opt/go/src/github.com/smartystreets/goconvey
+go: extracting github.com/soheilhy/cmux v0.1.4
+gogetguru github.com/soheilhy/cmux@v0.1.4: checked out * v0.1.4 in /opt/go/src/github.com/soheilhy/cmux
+go: extracting github.com/spaolacci/murmur3 v1.1.0
+go: extracting github.com/spf13/afero v1.2.2
+go: extracting github.com/spf13/cast v1.3.0
+go: extracting github.com/spf13/cobra v0.0.5
+go: extracting github.com/spf13/jwalterweatherman v1.0.0
+go: extracting github.com/spf13/pflag v1.0.5
+go: extracting github.com/spf13/viper v1.4.0
+go: extracting github.com/stretchr/objx v0.2.0
+go: extracting github.com/stretchr/testify v1.4.0
+go: extracting github.com/syndtr/gocapability v0.0.0-20170704070218-db04d3cc01c8
+gogetguru github.com/syndtr/gocapability@v0.0.0-20170704070218-db04d3cc01c8: checked out * (HEAD detached at db04d3c) in /opt/go/src/github.com/syndtr/gocapability
+go: extracting github.com/thanos-io/thanos v0.11.0
+gogetguru github.com/thanos-io/thanos@v0.11.0: checked out * v0.11.0 in /opt/go/src/github.com/thanos-io/thanos
+go: extracting github.com/tidwall/pretty v1.0.0
+go: extracting github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5
+gogetguru github.com/tmc/grpc-websocket-proxy@v0.0.0-20190109142713-0ad062ec5ee5: checked out * (HEAD detached at 0ad062e) in /opt/go/src/github.com/tmc/grpc-websocket-proxy
+go: extracting github.com/tv42/httpunix v0.0.0-20150427012821-b75d8614f926
+gogetguru github.com/tv42/httpunix@v0.0.0-20150427012821-b75d8614f926: checked out * (HEAD detached at b75d861) in /opt/go/src/github.com/tv42/httpunix
+go: extracting github.com/uber/jaeger-client-go v2.20.1+incompatible
+gogetguru github.com/uber/jaeger-client-go@v2.20.1: checked out * v2.20.1 in /opt/go/src/github.com/uber/jaeger-client-go
+go: extracting github.com/uber/jaeger-lib v2.2.0+incompatible
+gogetguru github.com/uber/jaeger-lib@v2.2.0: checked out * v2.2.0 in /opt/go/src/github.com/uber/jaeger-lib
+go: extracting github.com/ugorji/go/codec v0.0.0-20181204163529-d75b2dcb6bc8
+gogetguru github.com/ugorji/go/codec@v0.0.0-20181204163529-d75b2dcb6bc8: checked out * (HEAD detached at d75b2dc) in /opt/go/src/github.com/ugorji/go
+go: extracting github.com/ugorji/go v1.1.4
+gogetguru github.com/ugorji/go@v1.1.4: checked out * v1.1.4 in /opt/go/src/github.com/ugorji/go
+go: extracting github.com/urfave/cli v1.20.0
+gogetguru github.com/urfave/cli@v1.20.0: checked out * v1.20.0 in /opt/go/src/github.com/urfave/cli
+go: extracting github.com/vektah/gqlparser v1.1.2
+gogetguru github.com/vektah/gqlparser@v1.1.2: checked out * v1.1.2 in /opt/go/src/github.com/vektah/gqlparser
+go: extracting github.com/xanzy/go-gitlab v0.15.0
+gogetguru github.com/xanzy/go-gitlab@v0.15.0: checked out * v0.15.0 in /opt/go/src/github.com/xanzy/go-gitlab
+go: extracting github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c
+gogetguru github.com/xdg/scram@v0.0.0-20180814205039-7eeb5667e42c: checked out * (HEAD detached at 7eeb566) in /opt/go/src/github.com/xdg/scram
+go: extracting github.com/xdg/stringprep v1.0.0
+gogetguru github.com/xdg/stringprep@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/xdg/stringprep
+go: extracting github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f
+go: extracting github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415
+go: extracting github.com/xeipuuv/gojsonschema v1.1.0
+go: extracting github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2
+gogetguru github.com/xiang90/probing@v0.0.0-20190116061207-43a291ad63a2: checked out * (HEAD detached at 43a291a) in /opt/go/src/github.com/xiang90/probing
+go: extracting github.com/xlab/handysort v0.0.0-20150421192137-fb3537ed64a1
+gogetguru github.com/xlab/handysort@v0.0.0-20150421192137-fb3537ed64a1: checked out * (HEAD detached at fb3537e) in /opt/go/src/github.com/xlab/handysort
+go: extracting github.com/xlab/treeprint v0.0.0-20180616005107-d6fb6747feb6
+gogetguru github.com/xlab/treeprint@v0.0.0-20180616005107-d6fb6747feb6: checked out * (HEAD detached at d6fb674) in /opt/go/src/github.com/xlab/treeprint
+go: extracting github.com/xordataexchange/crypt v0.0.3-0.20170626215501-b2862e3d0a77
+gogetguru github.com/xordataexchange/crypt@v0.0.3-0.20170626215501-b2862e3d0a77: checked out * (HEAD detached at b2862e3) in /opt/go/src/github.com/xordataexchange/crypt
+go: extracting github.com/yuin/goldmark v1.1.25
+gogetguru github.com/yuin/goldmark@v1.1.25: checked out * v1.1.25 in /opt/go/src/github.com/yuin/goldmark
+go: extracting github.com/yvasiyarov/go-metrics v0.0.0-20140926110328-57bccd1ccd43
+go: extracting github.com/yvasiyarov/gorelic v0.0.0-20141212073537-a9bba5b9ab50
+go: extracting github.com/yvasiyarov/newrelic_platform_go v0.0.0-20140908184405-b21fdbd4370f
+go: extracting github.com/ziutek/mymysql v1.5.4
+go: extracting gitlab.com/nyarla/go-crypt v0.0.0-20160106005555-d9a5dc2b789b
+gogetguru gitlab.com/nyarla/go-crypt@v0.0.0-20160106005555-d9a5dc2b789b: checked out * (HEAD detached at d9a5dc2) in /opt/go/src/gitlab.com/nyarla/go-crypt
+go: extracting go.elastic.co/apm/module/apmhttp v1.5.0
+gogetguru go.elastic.co/apm/module/apmhttp@v1.5.0: checked out * v1.5.0 in /opt/go/src/github.com/elastic/apm-agent-go
+gogetguru: go.elastic.co/apm/module/apmhttp@v1.5.0: linked alias github.com/elastic/apm-agent-go as /opt/go/src/go.elastic.co/apm/module/apmhttp
+go: extracting go.elastic.co/apm/module/apmot v1.5.0
+gogetguru go.elastic.co/apm/module/apmot@v1.5.0: checked out * v1.5.0 in /opt/go/src/github.com/elastic/apm-agent-go
+gogetguru: go.elastic.co/apm/module/apmot@v1.5.0: linked alias github.com/elastic/apm-agent-go as /opt/go/src/go.elastic.co/apm/module/apmot
+go: extracting go.elastic.co/apm v1.5.0
+gogetguru go.elastic.co/apm@v1.5.0: checked out * v1.5.0 in /opt/go/src/github.com/elastic/apm-agent-go
+gogetguru: go.elastic.co/apm@v1.5.0: linked alias github.com/elastic/apm-agent-go as /opt/go/src/go.elastic.co/apm
+go: extracting go.elastic.co/fastjson v1.0.0
+gogetguru go.elastic.co/fastjson@v1.0.0: checked out * v1.0.0 in /opt/go/src/github.com/elastic/go-fastjson
+gogetguru: go.elastic.co/fastjson@v1.0.0: linked alias github.com/elastic/go-fastjson as /opt/go/src/go.elastic.co/fastjson
+go: extracting go.etcd.io/bbolt v1.3.3
+go: extracting go.etcd.io/etcd v0.0.0-20191023171146-3cf2f69b5738
+gogetguru go.etcd.io/etcd@v0.0.0-20191023171146-3cf2f69b5738: checked out * (HEAD detached at 3cf2f69b5) in /opt/go/src/github.com/etcd-io/etcd
+gogetguru: go.etcd.io/etcd@v0.0.0-20191023171146-3cf2f69b5738: linked alias github.com/etcd-io/etcd as /opt/go/src/go.etcd.io/etcd
+go: extracting golang.org/x/crypto v0.0.0-20200220183623-bac4c82f6975
+go: extracting golang.org/x/exp v0.0.0-20191030013958-a1ab85dbe136
+gogetguru golang.org/x/exp@v0.0.0-20191030013958-a1ab85dbe136: checked out * (HEAD detached at a1ab85d) in /opt/go/src/github.com/golang/exp
+gogetguru: golang.org/x/exp@v0.0.0-20191030013958-a1ab85dbe136: linked alias github.com/golang/exp as /opt/go/src/golang.org/x/exp
+go: extracting golang.org/x/image v0.0.0-20190802002840-cff245a6509b
+gogetguru golang.org/x/image@v0.0.0-20190802002840-cff245a6509b: checked out * (HEAD detached at cff245a) in /opt/go/src/github.com/golang/image
+gogetguru: golang.org/x/image@v0.0.0-20190802002840-cff245a6509b: linked alias github.com/golang/image as /opt/go/src/golang.org/x/image
+go: extracting golang.org/x/lint v0.0.0-20190930215403-16217165b5de
+go: extracting golang.org/x/mobile v0.0.0-20190719004257-d2bd2a29d028
+gogetguru golang.org/x/mobile@v0.0.0-20190719004257-d2bd2a29d028: checked out * (HEAD detached at d2bd2a2) in /opt/go/src/github.com/golang/mobile
+gogetguru: golang.org/x/mobile@v0.0.0-20190719004257-d2bd2a29d028: linked alias github.com/golang/mobile as /opt/go/src/golang.org/x/mobile
+go: extracting golang.org/x/mod v0.2.0
+go: extracting golang.org/x/net v0.0.0-20200324143707-d3edc9973b7e
+go: extracting golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
+go: extracting golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e
+go: extracting golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd
+go: extracting golang.org/x/text v0.3.2
+go: extracting golang.org/x/time v0.0.0-20191024005414-555d28b269f0
+go: extracting golang.org/x/tools v0.0.0-20200327195553-82bb89366a1e
+go: extracting golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543
+go: extracting gomodules.xyz/jsonpatch/v2 v2.0.1
+go: extracting gomodules.xyz/jsonpatch/v3 v3.0.1
+go: extracting gomodules.xyz/orderedmap v0.1.0
+go: extracting go.mongodb.org/mongo-driver v1.1.2
+go: extracting gonum.org/v1/gonum v0.0.0-20190331200053-3d26580ed485
+gogetguru gonum.org/v1/gonum@v0.0.0-20190331200053-3d26580ed485: checked out * master in /opt/go/src/github.com/gonum/tools
+gogetguru: gonum.org/v1/gonum@v0.0.0-20190331200053-3d26580ed485: linked alias github.com/gonum/tools as /opt/go/src/gonum.org/v1/gonum
+go: extracting gonum.org/v1/netlib v0.0.0-20190331212654-76723241ea4e
+gogetguru gonum.org/v1/netlib@v0.0.0-20190331212654-76723241ea4e: checked out * (HEAD detached at 7672324) in /opt/go/src/github.com/gonum/netlib
+gogetguru: gonum.org/v1/netlib@v0.0.0-20190331212654-76723241ea4e: linked alias github.com/gonum/netlib as /opt/go/src/gonum.org/v1/netlib
+go: extracting google.golang.org/api v0.14.0
+gogetguru google.golang.org/api@v0.14.0: checked out * v0.14.0 in /opt/go/src/github.com/googleapis/google-api-go-client
+gogetguru: google.golang.org/api@v0.14.0: linked alias github.com/googleapis/google-api-go-client as /opt/go/src/google.golang.org/api
+go: extracting google.golang.org/appengine v1.6.5
+go: extracting google.golang.org/cloud v0.0.0-20151119220103-975617b05ea8
+gogetguru google.golang.org/cloud@v0.0.0-20151119220103-975617b05ea8: checked out * (HEAD detached at 975617b05) in /opt/go/src/github.com/googleapis/google-cloud-go
+gogetguru: google.golang.org/cloud@v0.0.0-20151119220103-975617b05ea8: linked alias github.com/googleapis/google-cloud-go as /opt/go/src/google.golang.org/cloud
+go: extracting google.golang.org/genproto v0.0.0-20191115194625-c23dd37a84c9
+go: extracting google.golang.org/grpc v1.27.0
+go: extracting google.golang.org/protobuf v1.21.0
+go: extracting go.opencensus.io v0.22.2
+go: extracting gopkg.in/airbrake/gobrake.v2 v2.0.9
+gogetguru gopkg.in/airbrake/gobrake.v2@v2.0.9: checked out * v2.0.9 in /opt/go/src/gopkg.in/airbrake/gobrake.v2
+go: extracting gopkg.in/alecthomas/kingpin.v2 v2.2.6
+go: extracting gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f
+go: extracting gopkg.in/cheggaaa/pb.v1 v1.0.25
+gogetguru gopkg.in/cheggaaa/pb.v1@v1.0.25: checked out * v1.0.25 in /opt/go/src/gopkg.in/cheggaaa/pb.v1
+go: extracting gopkg.in/errgo.v2 v2.1.0
+gogetguru gopkg.in/errgo.v2@v2.1.0: checked out * v2.1.0 in /opt/go/src/gopkg.in/errgo.v2
+go: extracting gopkg.in/fsnotify/fsnotify.v1 v1.4.7
+gogetguru gopkg.in/fsnotify/fsnotify.v1@v1.4.7: checked out * v1.4.7 in /opt/go/src/gopkg.in/fsnotify/fsnotify.v1
+go: extracting gopkg.in/fsnotify.v1 v1.4.7
+go: extracting gopkg.in/gemnasium/logrus-airbrake-hook.v2 v2.1.2
+gogetguru gopkg.in/gemnasium/logrus-airbrake-hook.v2@v2.1.2: checked out * v2.1.2 in /opt/go/src/gopkg.in/gemnasium/logrus-airbrake-hook.v2
+go: extracting gopkg.in/gorp.v1 v1.7.2
+go: extracting gopkg.in/imdario/mergo.v0 v0.3.7
+gogetguru gopkg.in/imdario/mergo.v0@v0.3.7: checked out * v0.3.7 in /opt/go/src/gopkg.in/imdario/mergo.v0
+go: extracting gopkg.in/inf.v0 v0.9.1
+go: extracting gopkg.in/ini.v1 v1.51.0
+go: extracting gopkg.in/natefinch/lumberjack.v2 v2.0.0
+go: extracting gopkg.in/op/go-logging.v1 v1.0.0-20160211212156-b2cb9fa56473
+gogetguru gopkg.in/op/go-logging.v1@v1.0.0-20160211212156-b2cb9fa56473: checked out * (HEAD detached at b2cb9fa) in /opt/go/src/gopkg.in/op/go-logging.v1
+go: extracting gopkg.in/resty.v1 v1.12.0
+gogetguru gopkg.in/resty.v1@v1.12.0: checked out * v1.12.0 in /opt/go/src/gopkg.in/resty.v1
+go: extracting gopkg.in/square/go-jose.v2 v2.2.2
+go: extracting gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7
+go: extracting gopkg.in/yaml.v2 v2.2.8
+go: extracting gopkg.in/yaml.v3 v3.0.0-20190905181640-827449938966
+go: extracting gotest.tools v2.2.0+incompatible
+go: extracting go.uber.org/atomic v1.6.0
+go: extracting go.uber.org/automaxprocs v1.2.0
+gogetguru go.uber.org/automaxprocs@v1.2.0: checked out * v1.2.0 in /opt/go/src/github.com/uber-go/automaxprocs
+gogetguru: go.uber.org/automaxprocs@v1.2.0: linked alias github.com/uber-go/automaxprocs as /opt/go/src/go.uber.org/automaxprocs
+go: extracting go.uber.org/multierr v1.5.0
+go: extracting go.uber.org/tools v0.0.0-20190618225709-2cfd321de3ee
+go: extracting go.uber.org/zap v1.14.1
+go: extracting helm.sh/helm/v3 v3.1.2
+go: extracting honnef.co/go/tools v0.0.1-2019.2.3
+go: extracting howett.net/plist v0.0.0-20181124034731-591f970eefbb
+gogetguru: howett.net/plist@v0.0.0-20181124034731-591f970eefbb: could not be located (try vendoring it?)
+go: extracting k8s.io/apiextensions-apiserver v0.17.4
+go: extracting k8s.io/apimachinery v0.17.4
+go: extracting k8s.io/apiserver v0.17.4
+go: extracting k8s.io/api v0.17.4
+go: extracting k8s.io/autoscaler v0.0.0-20190607113959-1b4f1855cb8e
+gogetguru: k8s.io/autoscaler@v0.0.0-20190607113959-1b4f1855cb8e: could not be located (try vendoring it?)
+go: extracting k8s.io/client-go v12.0.0+incompatible => k8s.io/client-go v0.17.4
+go: extracting k8s.io/cli-runtime v0.17.4
+go: extracting k8s.io/code-generator v0.17.4
+go: extracting k8s.io/component-base v0.17.4
+go: extracting k8s.io/gengo v0.0.0-20191010091904-7fa3014cb28f
+go: extracting k8s.io/helm v2.16.3+incompatible
+go: extracting k8s.io/klog v1.0.0
+go: extracting k8s.io/kube-aggregator v0.17.3
+gogetguru: k8s.io/kube-aggregator@v0.17.3: could not be located (try vendoring it?)
+go: extracting k8s.io/kubectl v0.17.4
+go: extracting k8s.io/kube-openapi v0.0.0-20191107075043-30be4d16710a
+go: extracting k8s.io/kubernetes v1.13.0
+gogetguru k8s.io/kubernetes@v1.13.0: checked out * master in /opt/go/src/k8s.io/kubernetes
+go: extracting k8s.io/kube-state-metrics v1.7.2
+go: extracting k8s.io/metrics v0.17.4
+gogetguru: k8s.io/metrics@v0.17.4: could not be located (try vendoring it?)
+go: extracting k8s.io/utils v0.0.0-20191114200735-6ca3b61696b6
+go: extracting modernc.org/cc v1.0.0
+gogetguru modernc.org/cc@v1.0.0: checked out * v1.0.0 in /opt/go/src/gitlab.com/cznic/cc
+gogetguru: modernc.org/cc@v1.0.0: linked alias gitlab.com/cznic/cc as /opt/go/src/modernc.org/cc
+go: extracting modernc.org/golex v1.0.0
+gogetguru modernc.org/golex@v1.0.0: checked out * v1.0.0 in /opt/go/src/gitlab.com/cznic/golex
+gogetguru: modernc.org/golex@v1.0.0: linked alias gitlab.com/cznic/golex as /opt/go/src/modernc.org/golex
+go: extracting modernc.org/mathutil v1.0.0
+gogetguru modernc.org/mathutil@v1.0.0: checked out * v1.0.0 in /opt/go/src/gitlab.com/cznic/mathutil
+gogetguru: modernc.org/mathutil@v1.0.0: linked alias gitlab.com/cznic/mathutil as /opt/go/src/modernc.org/mathutil
+go: extracting modernc.org/strutil v1.0.0
+gogetguru modernc.org/strutil@v1.0.0: checked out * v1.0.0 in /opt/go/src/gitlab.com/cznic/strutil
+gogetguru: modernc.org/strutil@v1.0.0: linked alias gitlab.com/cznic/strutil as /opt/go/src/modernc.org/strutil
+go: extracting modernc.org/xc v1.0.0
+gogetguru modernc.org/xc@v1.0.0: checked out * v1.0.0 in /opt/go/src/gitlab.com/cznic/xc
+gogetguru: modernc.org/xc@v1.0.0: linked alias gitlab.com/cznic/xc as /opt/go/src/modernc.org/xc
+go: extracting rsc.io/binaryregexp v0.2.0
+go: extracting rsc.io/letsencrypt v0.0.3
+go: extracting sigs.k8s.io/controller-runtime v0.5.2
+go: extracting sigs.k8s.io/controller-tools v0.2.8
+go: extracting sigs.k8s.io/kubebuilder v1.0.9-0.20200409105744-27812b07d2db
+go: extracting sigs.k8s.io/kustomize v2.0.3+incompatible
+go: extracting sigs.k8s.io/structured-merge-diff v1.0.2
+go: extracting sigs.k8s.io/yaml v1.1.0
+go: extracting vbom.ml/util v0.0.0-20160121211510-db5cfe13f5cc
+gogetguru vbom.ml/util@v0.0.0-20160121211510-db5cfe13f5cc: checked out * (HEAD detached at db5cfe1) in /opt/go/src/github.com/fvbommel/util
+gogetguru: vbom.ml/util@v0.0.0-20160121211510-db5cfe13f5cc: linked alias github.com/fvbommel/util as /opt/go/src/vbom.ml/util
