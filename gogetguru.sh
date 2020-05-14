@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 #
 # Linking cloned sources or extracted modules under GOPATH for Go Guru
 # to work with go modules AUTOMAGICALLY:
@@ -70,54 +70,87 @@ usage(){
 EOF
 }
 
-function followURL(){ # args: URL to follow - recursively, if redirected
+gitclone(){ # args: url, local path
+  # leverages results cached in global histry
+  local rc=1
+  local p="$1"
+  local s="$2"
+  # an entry format: <url> <rc> (or followURL's shared cache)
+  local cached=$(cat $histry | grep -m 1 "$p ")
+  echo $cached | grep -q 'follow ' && cached=$(echo $cached | awk -F"follow " '{print $2}')
+  if [ "$cached" ]; then
+    rc=$(echo $cached | awk '{print $2}')
+  else
+    [ -d "$s" ] && rm -r "$s" 2>/dev/null  # purge if only empty dir
+    mkdir -p "${s%/*}" 2>/dev/null
+    git clone "$p" "$s" >/dev/null 2>&1
+    rc=$?
+    echo "$p $rc" >> $histry  # don't dedup it
+  fi
+  return $rc
+}
+
+function followURL(){ # args: URL to follow - recursively, if redirected and
   # look for aliases & clone by discivered URL (with naive HTTP redirect features)
   # TODO find a better way to discover the real source repo, like via go list?
   local rc=1
   local res
   local loc
-  set +x
-  local doc=$(curl -sLk "$1")
-  local madness='.*content=".*?\n?.*?\s(?<url>https:\/\/\S+\b)({.*)?"/ && print $+{url}'
-  local xmlKungfu='/id="pkg-files".*?\n?.*?(?<url>https:\/\/\S+\b)({.*)?"/ && print $+{url}'
-  local goimp=$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-source\"$madness" | tail -1)
-  goimp=${goimp:-$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-import\"$madness" | tail -1)}
-  goimp=${goimp:-$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "$xmlKungfu" | tail -1)}
-  set -x
-  goimp=$(echo $goimp | awk -F"/tree/" '{print $1}')
-  local pfl=$(echo $goimp | awk -F'https://' '{print $2}')
-  [ "$goimp" -a "$pfl" ] || return 1
-  local sfl="${GOPATH}/src/${pfl%.git}"
-  pfl="${pfl%.git}"
-  if [ -d "$(readlink -f $sfl)/.git" ]; then
-    sfl=$(readlink -f "$sfl")
-    pfl=$(echo $sfl | awk -F"$GOPATH/src/" '{print $2}')
-    rc=0
+  local cached
+  local pfl
+  local sfl
+  # an entry format: follow <url> <rc> [<sfl> <pfl>], ignores chached git clone results
+  cached=$(cat $histry | grep -m 1 "follow $1 ")
+  if [ "$cached" ]; then
+    rc=$(echo $cached | awk '{print $3}')
+    if [ $rc -eq 0 ]; then
+      sfl=$(echo $cached | awk '{print $4}')
+      pfl=$(echo $cached | awk '{print $5}') 
+    fi
   else
-    res=$(curl -sIk $goimp)
-    if echo $res | grep -iq '301 moved'; then
-      loc=$(echo $res | perl -lne '/location:\s*(?<url>\S+\b)/ && print $+{url}')
-      loc="${loc:-$goimp}"
-      if [ "${loc%.git*}" != "${1%.git*}" ]; then
-        followURL "${loc}"
+    #set +x
+    local doc=$(curl -sLk "$1")
+    local madness='.*content=".*?\n?.*?\s(?<url>https:\/\/\S+\b)({.*)?"/ && print $+{url}'
+    local xmlKungfu='/id="pkg-files".*?\n?.*?(?<url>https:\/\/\S+\b)({.*)?"/ && print $+{url}'
+    local goimp=$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-source\"$madness" | tail -1)
+    goimp=${goimp:-$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-import\"$madness" | tail -1)}
+    goimp=${goimp:-$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "$xmlKungfu" | tail -1)}
+    #set -x
+    goimp=$(echo $goimp | awk -F"/tree/|/blob/" '{print $1}')
+    pfl=$(echo $goimp | awk -F'https://' '{print $2}')
+    if [ -z "${goimp}${pfl}" ]; then
+      echo "follow $1 1" >> $histry
+      return 1
+    fi
+    sfl="${GOPATH}/src/${pfl%.git}"
+    pfl="${pfl%.git}"
+    if [ -d "$(readlink -f $sfl)/.git" ]; then
+      sfl=$(readlink -f "$sfl")
+      pfl=$(echo $sfl | awk -F"$GOPATH/src/" '{print $2}')
+      rc=0
+    else
+      res=$(curl -sIk $goimp)
+      if echo $res | grep -iq '301 moved'; then
+        loc=$(echo $res | perl -lne '/location:\s*(?<url>\S+\b)/ && print $+{url}')
+        loc="${loc:-$goimp}"
+        if [ "${loc%.git*}" != "${1%.git*}" ]; then
+          followURL "${loc}"
+          rc=$?
+        else
+          gitclone "${loc:-$goimp}" "${sfl}"
+          rc=$?
+        fi
+      elif echo $res | grep -i '200 ok'; then
+        gitclone "${loc:-$goimp}" "${sfl}"
         rc=$?
       else
-        [ -d "$sfl" ] && rm -r "$sfl" 2>/dev/null  # purge if only empty dir
-        mkdir -p "${sfl%/*}" 2>/dev/null
-        git clone "${loc:-$goimp}" "${sfl}" >/dev/null 2>&1
-        rc=$?
+        rc=1  # failed parsing HTTP response
       fi
-    elif echo $res | grep -i '200 ok'; then
-      [ -d "$sfl" ] && rm -r "$sfl" 2>/dev/null  # purge if only empty dir
-      mkdir -p "${sfl%/*}" 2>/dev/null
-      git clone "${loc:-$goimp}" "${sfl}" >/dev/null 2>&1
-      rc=$?
-    else
-      rc=1  # failed parsing HTTP response
     fi
   fi
   if [ $rc -eq 0 ]; then
     pf="${pf:-$pfl}"; sf="${sf:-$sfl}"  # return discovered alias and path
+    echo "follow $1 0 $sf $pf" >> $histry  # don't dedup it
   fi
   return $rc
 }
@@ -138,6 +171,7 @@ cloneit(){  # args: package name and ver.
   local mver
   local cver
   local levels
+  local cached
   
   f=''
   oldf=''
@@ -150,7 +184,6 @@ cloneit(){  # args: package name and ver.
   for p in $levels; do
     [ $(echo $p | grep -o \/ | wc -w) -gt 0 ] || continue 
     s="$GOPATH/src/$p"
-    #[ -L "$s" -a ! -d "$(readlink -f $s)/.git" ] && return 1  # a symlinked module
     f="$p"
     oldf="$f"
     rc=1
@@ -160,13 +193,11 @@ cloneit(){  # args: package name and ver.
       rc=0
       break
     else
-      [ -d "$s" ] && rm -r "$s" 2>/dev/null  # purge if only empty dir
-      mkdir -p "${s%/*}" 2>/dev/null
-      git clone "https://$p" "${s}" >/dev/null 2>&1
+      gitclone "https://$p" "$s"
       rc=$?
       if [ $rc -ne 0 ]; then
         f=''
-        followURL "https://$p"
+        followURL "https://$p" # updates history of URLs in global histry
         rc=$?
         if [ $rc -eq 0 ]; then
           f="$pf"  # the discovered alias from URL
@@ -220,9 +251,9 @@ cloneit(){  # args: package name and ver.
   # or found an alias on other paths/repos:
   #   ($1)Masterminds/semver/v3 -> (f)Masterminds/semver (has no ./v3 dir)
   if [ ! -d "$GOPATH/src/$1" -a "$f" ]; then
-    fl="$(echo $f | tr '[:upper:]' '[:lower:]')"
+    fl=$(echo $f | tr '[:upper:]' '[:lower:]')
     if echo $nl | grep -q "$fl"; then  # is a subpath of $1.lower (googleapis/gnostic)
-      sfb="$(echo "$nl" | awk -F"$fl" '{print $2}')" # rightmost part (openapiv3(/...))
+      sfb=$(echo "$nl" | awk -F"$fl" '{print $2}') # rightmost part (openapiv3(/...))
       fl="${f}${sfb}"
       if [ -d "$GOPATH/src/$fl" ]; then
         f="$fl"; oldf="$1"; # signal to the caller that f->oldf has to be symlinked
@@ -276,8 +307,8 @@ if [ $info -eq 0 ]; then
   echo "gogetguru: global info on symlinks (relative to $GOPATH/src):"
   IFS=$'\n'
   for l in $(find "$GOPATH/src" -type l); do
-    src="$(echo $l | perl -pe 's,[^\s]\S+/src/,,g')"
-    dst="$(readlink -f "$l" | perl -pe 's,[^\s]\S+/src/,,g')"
+    src=$(echo $l | perl -pe 's,[^\s]\S+/src/,,g')
+    dst=$(readlink -f "$l" | perl -pe 's,[^\s]\S+/src/,,g')
     printf "%-55s%4s%s\n" $src '-> ' $dst
   done
   exit 0
@@ -296,15 +327,17 @@ fi
 sort "$file" -o "$modfile"
 file="$modfile"
 
-found=''
+found=''   # list of found (processed OK) packages for this run
+histry=$(mktemp /tmp/tmp.XXXXXXXXXX) # history of processed URLs for this run
+trap 'rm -f ${histry}' EXIT INT HUP
 while read -r m; do
   echo $m
   [[ $m =~ "extracting" ]] || continue
-  name="$(echo $m | awk -F':' '{print $2}' | awk '{print $2}')"
-  ver="$(echo $m | awk -F':' '{print $2}' | awk '{print $3}' | awk -F'+incompatible' '{print $1}')"
+  name=$(echo $m | awk -F':' '{print $2}' | awk '{print $2}')
+  ver=$(echo $m | awk -F':' '{print $2}' | awk '{print $3}' | awk -F'+incompatible' '{print $1}')
   echo "$found" | grep -q "$name@$ver" && continue  # found on the src paths
-  sname="$(basename ${name})"
-  dname="$(dirname ${GOPATH}/pkg/mod/${name})"
+  sname=$(basename "$name")
+  dname=$(dirname "$GOPATH/pkg/mod/$name")
 
   # check if symlink exists and already matches
   readlink -f "$GOPATH/src/$name" | grep -q "${ver}" && continue
@@ -335,8 +368,8 @@ while read -r m; do
 
   # was it already/before symlinked from a module?
   [ "$fm" ] && continue
-  #[ -L "$GOPATH/src/$name" -a ! -d "$(readlink -f $GOPATH/src/$name)/.git" ] && continue
 
+  # tracks history of attempted URLs and rcs in global histry
   cloneit "$name" "$ver"  # sets f and oldf != f, if f is a discovered alias
   rc=$?
   if [ $rc -eq 0 -a "$f" -a "$oldf" -a "$oldf" != "$f" ]; then  # discovered alias should be symlinked
