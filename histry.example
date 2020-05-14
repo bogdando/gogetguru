@@ -1,0 +1,57 @@
+https://github.com/Azure/azure-pipeline-go 0
+https://github.com/Azure/azure-sdk-for-go 0
+https://github.com/Azure/azure-storage-blob-go 0
+https://github.com/Azure/go-ansiterm 0
+https://github.com/Azure/go-autorest/autorest/adal 128
+follow https://github.com/Azure/go-autorest/autorest/adal 1
+https://github.com/Azure 128
+follow https://github.com/Azure 1
+https://github.com/Azure/go-autorest/autorest 128
+follow https://github.com/Azure/go-autorest/autorest 1
+https://github.com/Azure/go-autorest 0
+https://github.com/Azure/go-autorest/autorest/date 128
+follow https://github.com/Azure/go-autorest/autorest/date 1
+https://github.com/Azure/go-autorest/autorest/mocks 128
+follow https://github.com/Azure/go-autorest/autorest/mocks 1
+https://github.com/Azure/go-autorest/autorest/to 128
+follow https://github.com/Azure/go-autorest/autorest/to 1
+https://github.com/Azure/go-autorest/autorest/validation 128
+follow https://github.com/Azure/go-autorest/autorest/validation 1
+https://github.com/Azure/go-autorest/logger 128
+follow https://github.com/Azure/go-autorest/logger 1
+https://github.com/Azure/go-autorest/tracing 128
+follow https://github.com/Azure/go-autorest/tracing 1
+https://github.com/gobuffalo/packr/v2 128
+follow https://github.com/gobuffalo/packr/v2 1
+https://github.com/hashicorp/consul/api 128
+follow https://github.com/hashicorp/consul/api 1
+https://github.com/hashicorp/consul/sdk 128
+follow https://github.com/hashicorp/consul/sdk 1
+https://github.com/lightstep/lightstep-tracer-common/golang/gogo 128
+follow https://github.com/lightstep/lightstep-tracer-common/golang/gogo 1
+https://github.com/lightstep 128
+follow https://github.com/lightstep 1
+https://github.com/lightstep/lightstep-tracer-common/golang 128
+follow https://github.com/lightstep/lightstep-tracer-common/golang 1
+https://github.com/lightstep/lightstep-tracer-common 0
+https://github.com/lightstep/lightstep-tracer-go 0
+https://github.com/Masterminds/semver/v3 128
+follow https://github.com/Masterminds/semver/v3 1
+https://github.com/ugorji/go/codec 128
+follow https://github.com/ugorji/go/codec 1
+https://go.elastic.co/apm/module/apmhttp 128
+follow https://go.elastic.co/apm/module/apmhttp 0 /opt/go/src/github.com/elastic/apm-agent-go github.com/elastic/apm-agent-go
+https://go.elastic.co/apm/module/apmot 128
+follow https://go.elastic.co/apm/module/apmot 0 /opt/go/src/github.com/elastic/apm-agent-go github.com/elastic/apm-agent-go
+https://howett.net/plist 128
+follow https://howett.net/plist 1
+https://k8s.io/autoscaler 128
+follow https://k8s.io/autoscaler 1
+https://k8s.io/kube-aggregator 128
+follow https://k8s.io/kube-aggregator 1
+https://k8s.io/metrics 128
+follow https://k8s.io/metrics 1
+https://modernc.org/cc 128
+https://gitlab.com/cznic/cc 0
+follow https://modernc.org/cc 0 /opt/go/src/gitlab.com/cznic/cc gitlab.com/cznic/cc
+https://modernc.org/golex 128

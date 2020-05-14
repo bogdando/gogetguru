@@ -52,6 +52,7 @@
 #   '{{if (not (or .Main .Indirect))}}go: extracting {{.Path}}: {{.Version}}{{end}}' \
 #   -m all 2>/def/null > gogetmodules
 #
+#set -x
 usage(){
   cat << EOF
   Usage:
@@ -81,7 +82,7 @@ gitclone(){ # args: url, local path
   if [ "$cached" ]; then
     rc=$(echo $cached | awk '{print $2}')
   else
-    [ -d "$s" ] && rm -r "$s" 2>/dev/null  # purge if only empty dir
+    rm -d "$s" 2>/dev/null  # purge if only empty dir
     mkdir -p "${s%/*}" 2>/dev/null
     git clone "$p" "$s" >/dev/null 2>&1
     rc=$?
@@ -244,6 +245,7 @@ cloneit(){  # args: package name and ver.
     git -C "$s" checkout master >/dev/null 2>&1
     rc=$?
   fi
+  [ $rc -eq 0 ] && echo "gogetguru $1@$ver: checked out $(git --no-pager -C $s branch | grep '*') in $s"
   git -C "$s" pull --ff-only >/dev/null 2>&1
   
   # check if found a camelcase match:
@@ -358,7 +360,7 @@ while read -r m; do
  
   # create a symlink of a module into expected src path
   if [ "$fm" ] && [ ! -d "$(readlink -f $GOPATH/src/$name)/.git" -o -L "$GOPATH/src/$name" -o $overwrite -eq 0 ]; then
-    rm -r "$GOPATH/src/$name" 2>/dev/null  # purge dir if empty
+    rm -d "$GOPATH/src/$name" 2>/dev/null  # purge dir if empty
     [ $overwrite -eq 0 ] && rm -rf "$GOPATH/src/$name"
     mkdir -p "$GOPATH/src/${f%/*}" 2>/dev/null
     ln -sf "$fm" "$GOPATH/src/$name"
@@ -375,7 +377,7 @@ while read -r m; do
   if [ $rc -eq 0 -a "$f" -a "$oldf" -a "$oldf" != "$f" ]; then  # discovered alias should be symlinked
     found="$oldf@$ver $found"
     if [ ! -d "$(readlink $GOPATH/src/$oldf)/.git" -o -L "$GOPATH/src/$oldf" -o $overwrite -eq 0 ]; then
-      rm -r "$GOPATH/src/$oldf" 2>/dev/null  # purge dir if empty
+      rm -d "$GOPATH/src/$oldf" 2>/dev/null  # purge dir if empty
       [ $overwrite -eq 0 ] && rm -rf "$GOPATH/src/$oldf"
       mkdir -p "$GOPATH/src/${oldf%/*}" 2>/dev/null
       ln -sf "$GOPATH/src/$f" "$GOPATH/src/$oldf"
