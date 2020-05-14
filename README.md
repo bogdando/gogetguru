@@ -79,3 +79,21 @@ there was a module found. If you wish to go wild and symlink it over live repo, 
  linked module as /opt/go/src/github.com/operator-framework/operator-sdk
  ...
 ```
+
+# Vim-Go example
+
+Here is what ``:GoImplements`` shows in Vim (after a long long search...):
+
+![Car Image](./vim-go-example.png)
+
+And here is how ``:GoCallees`` still fails :-(
+```
+vim-go: guru: couldn't load packages due to errors: k8s.io/apimachinery/pkg/apis/meta/v1beta1,
+github.com/googleapis/gnostic/extensions, golang.org/x/text/secure/bidirule and 2 more
+```
+To debug this, see what ``:messages`` show in vim, then try something like:
+```
+ gogetguru golang.org/x/text/secure/bidirule golang.org/x/text/unicode/bidi github.com/golang/protobuf
+ go build ./...
+```
+And then try :GoCallers again.
