@@ -74,16 +74,19 @@ function followURL(){ # args: URL to follow - recursively, if redirected
   set +x
   local doc=$(curl -sLk "$1")
   local madness='.*content=".*?\n?.*?\s(?<url>https:\/\/\S+\b)({.*)?"/ && print $+{url}'
+  local xmlKungfu='/id="pkg-files".*?\n?.*?(?<url>https:\/\/\S+\b)({.*)?"/ && print $+{url}'
   local goimp=$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-source\"$madness" | tail -1)
   goimp=${goimp:-$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "/meta name=\"go-import\"$madness" | tail -1)}
+  goimp=${goimp:-$(echo $doc | tr -s '\n' ' ' | perl -l -0777ne "$xmlKungfu" | tail -1)}
   set -x
+  goimp=$(echo $goimp | awk -F"/tree/" '{print $1}')
   local pfl=$(echo $goimp | awk -F'https://' '{print $2}')
   [ "$goimp" -a "$pfl" ] || return 1
   local sfl="${GOPATH}/src/${pfl%.git}"
   pfl="${pfl%.git}"
   if [ -d "$(readlink -f $sfl)/.git" ]; then
     sfl=$(readlink -f "$sfl")
-    pfl=$(echo $pfl | awk -F"$GOPATH/src/" '{print $2}')
+    pfl=$(echo $sfl | awk -F"$GOPATH/src/" '{print $2}')
     rc=0
   else
     res=$(curl -sIk $goimp)
