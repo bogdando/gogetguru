@@ -25,18 +25,20 @@ to work with go modules AUTOMAGICALLY:
 Hacks around missing [goguru modules support](https://github.com/golang/go/issues/31720)
 so you can use modules with [vim-go](https://github.com/fatih/vim-go), hopefully.
 
+  > **NOTE**: if you have multiple dirs in GOPATH, it takes only the first one
+
 Alternative approaches to this script is either vendoring:
 ```
   $ export GOFLAGS=-mod=vendor
 ```
-OR hacking in go.mod files, e.g.:
+OR hacking in `go.mod` files, e.g.:
 ```
   use replace github.com/foo/bar => ../bar
 ```
 OR using gopls over go guru?..
 
 ## Examples
-NOTE stderr redirect is needed for pipelining go tools):
+Note that stderr redirect is needed for pipelining go tools:
 ```
  $ go get k8s.io/api/core/v1@latest |& gogetguru.sh
  $ go mod tidy 2>&1 | tee gogetmodules
@@ -55,14 +57,15 @@ Or example for how to not mess your go.mod and go.sum in ./ :
  $ function ggg { (cd && GO111MODULE=on $@ |& gogetguru.sh) }
  $ ggg go get -u cats.io/a.messy.module/v1@master
 ```
-Fetch the world [example](./results.example) (process all a project's deps to put it in GOPATH):
+Fetch the world [example](./results.example)
+(processes all a project's deps to bring it in GOPATH as the best effor):
 ```
  $ go list -m all | tail -n +2 | xargs -n1 -r -I{} echo go: extracting {} |& gogetguru
 ```
 Fetch only direct deps for future post-processing (``-f gogetmodules``):
 ```
  $ go list -u -f \
-   '{{if (not (or .Main .Indirect))}}go: extracting {{.Path}}: {{.Version}}{{end}}' \
+   '{{if (not (or .Main .Indirect))}}go: extracting {{.Path}} {{.Version}}{{end}}' \
    -m all 2>/dev/null > gogetmodules
  $ gogetguru -f gogetmodules 
 ```
@@ -72,6 +75,7 @@ there was a module found. If you wish to go wild and symlink it over live repo, 
 ```
  $ gogetguru -o -f gogetmodules
  ...
- gogetguru: github.com/operator-framework/operator-sdk@v0.17.1-0.20200416203822-1087d81ff40b: linked module as /opt/go/src/github.com/operator-framework/operator-sdk
+ gogetguru: github.com/operator-framework/operator-sdk@v0.17.1-0.20200416203822-1087d81ff40b:
+ linked module as /opt/go/src/github.com/operator-framework/operator-sdk
  ...
 ```
