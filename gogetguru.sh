@@ -31,11 +31,11 @@
 #
 # Example (NOTE stderr redirect is needed for pipelining go tools):
 # $ go get k8s.io/api/core/v1@latest |& gogetguru.sh
-# $ go mod tidy 2>&1 | tee /tmp/gogetmodules
-# $ gogetguru.sh -o -f /tmp/gogetmodules  # postprocess it in overwrite mode
+# $ go mod tidy 2>&1 | tee gogetmodules
+# $ gogetguru.sh -o -f gogetmodules  # postprocess it in overwrite mode
 #
 # Or (this also attempts to follow redirected URLs):
-# $ gogetguru.sh k8s.io/weird.module/v1 github.com/something/odd/v3
+# $ gogetguru.sh k8s.io/weird.module/v1 github.com/something/odd/v3@v1.2.3
 #
 # Example that "mirrors" the vendored modules also in the GOPATH src:
 # $ go mod vendor |& gogetguru.sh
@@ -46,6 +46,11 @@
 #
 # Fetch the world example (process all a project's deps to put it in GOPATH):
 # $ go list -m all | tail -n +2 | xargs -n1 -r -I{} echo go: extracting {} |& gogetguru
+#
+# Fetch only direct deps for future post-processing (-f gogetmodules):
+# $ go list -u -f \
+#   '{{if (not (or .Main .Indirect))}}go: extracting {{.Path}}: {{.Version}}{{end}}' \
+#   -m all 2>/def/null > gogetmodules
 #
 usage(){
   cat << EOF
@@ -96,6 +101,11 @@ function followURL(){ # args: URL to follow - recursively, if redirected
       if [ "${loc%.git*}" != "${1%.git*}" ]; then
         followURL "${loc}"
         rc=$?
+      else
+        [ -d "$sfl" ] && rm -r "$sfl" 2>/dev/null  # purge if only empty dir
+        mkdir -p "${sfl%/*}" 2>/dev/null
+        git clone "${loc:-$goimp}" "${sfl}" >/dev/null 2>&1
+        rc=$?
       fi
     elif echo $res | grep -i '200 ok'; then
       [ -d "$sfl" ] && rm -r "$sfl" 2>/dev/null  # purge if only empty dir
@@ -131,6 +141,7 @@ cloneit(){  # args: package name and ver.
   
   f=''
   oldf=''
+  IFS=$' '
   for p in "$1" "${1%/*/*/*}" "${1%/*}" "${1%/*/*}" "${1%/*/*/*/*}"; do  # also search a 4 levels up
     [ $(echo $p | grep -o \/ | wc -w) -gt 0 ] || continue
     echo $levels | grep -q "$p " && continue
@@ -249,6 +260,7 @@ GOPATH=$(echo $GOP | awk -F':' '{print $1}')
 
 if [ $clean -eq 0 ]; then
   echo "gogetguru: cleaning off previously symlinked pkg/mods"
+  IFS=$'\n'
   for l in $(find "$GOPATH/src" -type l); do
     readlink -f "$l" | grep -q '/pkg/mod/' && rm -f "$l"
     rc=$?
@@ -262,6 +274,7 @@ find "$GOPATH/src" -type l ! -exec test -e {} \; -print |\
 
 if [ $info -eq 0 ]; then
   echo "gogetguru: global info on symlinks (relative to $GOPATH/src):"
+  IFS=$'\n'
   for l in $(find "$GOPATH/src" -type l); do
     src="$(echo $l | perl -pe 's,[^\s]\S+/src/,,g')"
     dst="$(readlink -f "$l" | perl -pe 's,[^\s]\S+/src/,,g')"
@@ -275,7 +288,8 @@ if [ "$args" ]; then
   :> "$modfile"
   IFS=,
   for a in $args; do
-    echo "gogetguru: extracting $a master" >> "$modfile"
+    v=$(echo $a | awk -F"@" '{print $2}')
+    echo "gogetguru: extracting ${a%@*} ${v:-master}" >> "$modfile"
   done
   file="$modfile"
 fi
@@ -299,11 +313,11 @@ while read -r m; do
   fm=''
   fm=$(find ${dname} -name "${sname}@*" 2>/dev/null | grep -m1 "$ver")
   if [ "$fm" ]; then
-    fm=$(echo $fm | awk -F'.tmp|+incompatible' '{print $1}')
+    fm=$(echo $fm | awk -F'.tmp' '{print $1}')
     ver=$(echo $fm | awk -F'@' '{print $2}' | awk -F'/' '{print $1}')
   else
     fm=$(find ${dname}@* -type d -name "${sname}" 2>/dev/null | grep -m1 "$ver")
-    fm=$(echo $fm | awk -F'.tmp|+incompatible' '{print $1}')
+    fm=$(echo $fm | awk -F'.tmp' '{print $1}')
     if [ "$fm" ]; then
       ver=$(echo $fm | awk -F'@' '{print $2}' | awk -F'/' '{print $1}')
     fi
