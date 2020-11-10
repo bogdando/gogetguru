@@ -362,7 +362,7 @@ while read -r m; do
   if [ "$fm" ] && [ ! -d "$(readlink -f $GOPATH/src/$name)/.git" -o -L "$GOPATH/src/$name" -o $overwrite -eq 0 ]; then
     rm -d "$GOPATH/src/$name" 2>/dev/null  # purge dir if empty
     [ $overwrite -eq 0 ] && rm -rf "$GOPATH/src/$name"
-    mkdir -p "$GOPATH/src/${f%/*}" 2>/dev/null
+    mkdir -p "$GOPATH/src/${name%/*}" 2>/dev/null
     ln -sf "$fm" "$GOPATH/src/$name"
     echo "gogetguru: $name@$ver: linked module as $GOPATH/src/$name"
     found="$name@$ver $found"
